@@ -14,15 +14,15 @@ const Signup = () => {
                     <form className="auth-form">
                         <div className="form-input-container">
                             <label htmlFor="firstNameGiven" className="form-input-label">
-                                Krish
+                                First Name
                             </label>
                             <input type="text" id="firstNameGiven" name="firstName" className="auth-input" placeholder='e.g Krish' required />
                         </div>
                         <div className="form-input-container">
-                            <label htmlFor="firstNameGiven" className="form-input-label">
-                                Patel
+                            <label htmlFor="lastNameGiven" className="form-input-label">
+                                Last Name
                             </label>
-                            <input type="text" id="firstNameGiven" name="firstName" className="auth-input" placeholder='e.g Patel' required />
+                            <input type="text" id="lastNameGiven" name="lastName" className="auth-input" placeholder='e.g Patel' required />
                         </div>
                         <div className="form-input-container">
                             <label htmlFor="emailGiven" className="form-input-label">
