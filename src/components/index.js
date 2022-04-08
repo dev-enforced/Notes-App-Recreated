@@ -1,2 +1,10 @@
 export { HomePageNavigation } from "./HomePageNavigation/HomePageNavigation";
 export { HeroSection } from "./HeroSection/HeroSection";
+export { SideNavigation } from "./SideNavigation/SideNavigation";
+export { NoteInput } from "./NoteInput/NoteInput";
+export { RichTextEditor } from "./RichTextEditor/RichTextEditor";
+export { ColorPalette } from "./ColorPalette/ColorPalette";
+export { LabelSection } from "./LabelSection/LabelSection";
+export { PriorityDropdown } from "./PriorityDropdown/PriorityDropdown";
+export { NoteDisplay } from "./NoteDisplay/NoteDisplay";
+export { NoteItem } from "./NoteItem/NoteItem";

@@ -1,0 +1,15 @@
+.note-input-container{
+    border-radius:var(--border-rd-md);
+    box-shadow:1px 2px 15px #d3d3d3;
+    gap:0.5rem;
+    margin: 0 auto;
+    padding:1rem;
+    width: 50%;
+}
+
+.note-input{
+    outline: transparent;
+    width: 100%;
+    border: transparent;
+    background-color: #d3d3d3;
+}

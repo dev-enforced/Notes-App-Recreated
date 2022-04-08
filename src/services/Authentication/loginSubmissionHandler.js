@@ -13,7 +13,7 @@ const loginSubmissionHandler = async (e, loginDataGiven, authStateUpdateFunction
                 ...prev, isLoggedIn: true,
                 encodedToken: encodedTokenFromData
             }))
-            navigatorFunction("/");
+            navigatorFunction("/noteshome");
         }
     } catch (loginSubmissionError) {
         console.error("LOGIN SUBMISSION ERROR:", loginSubmissionError);

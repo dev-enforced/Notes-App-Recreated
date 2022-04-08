@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { MockAPI, Mockbee, Homepage, Login, Signup } from "pages";
+import { MockAPI, Mockbee, Homepage, Login, Signup,NotesHome } from "pages";
+import { PrivateRoute } from "./PrivateRoute";
 
 const AppRoutes = () => {
     return (
@@ -10,6 +11,7 @@ const AppRoutes = () => {
             <Route path="/" element={<Homepage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/noteshome" element={<PrivateRoute partGiven={<NotesHome/>}></PrivateRoute>}/>
         </Routes>
     )
 }

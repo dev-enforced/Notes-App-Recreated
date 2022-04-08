@@ -13,7 +13,7 @@ const signupSubmissionHandler = async (e, signupDataGiven, authStateUpdateFuncti
                 ...prev, isLoggedIn: true,
                 encodedToken: encodedTokenFromData
             }))
-            navigatorFunction("/");
+            navigatorFunction("/noteshome");
         }
     } catch (signupSubmissionError) {
         console.error("SIGNUP SUBMISSION ERROR:", signupSubmissionError);

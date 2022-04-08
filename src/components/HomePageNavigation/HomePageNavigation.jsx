@@ -23,9 +23,10 @@ const HomePageNavigation = () => {
             }} >
               LOGOUT
             </button> :
-            <NavLink className={`home-link link-none `} to="/login">
+            <NavLink className={`home-link link-none`} to="/login">
               LOGIN
-            </NavLink>}
+            </NavLink>
+          }
         </li>
         <li>
           <Dark className="nav-icon text-cursor-pointer" />

@@ -42,7 +42,7 @@
     color: #5c5ce0;
 }
 
-.selected-link{
+.home-link.active{
     border-bottom: 2px solid #5c5ce0;
 }
 
