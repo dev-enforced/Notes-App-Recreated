@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { colorList } from 'constants';
 import "./ColorPalette.css";
 const ColorPalette = () => {
     const [colorListStyle, setColorListStyle] = useState("color-list-none")
     const toggleColorListStyle = () => {
         setColorListStyle(classDetails => classDetails === "color-list flex-row" ? setColorListStyle("color-list-none") : ("color-list flex-row"))
     }
-    const colorList = ["#f28b82", "#fbbc04", "#fff475", "#ccff90", "#a7ffeb", "#cbf0f8", "#aecbfa", "#d7aefb", "#fdcfe8"]
+
     return (
         <div className='color-palette-action'>
             <button className='color-selector-btn' onClick={toggleColorListStyle}>
