@@ -52,7 +52,7 @@ const Login = () => {
                                 }}>GUEST LOGIN</button>
                         </p>
                         <p>
-                            <NavLink to="/signup" className="link-none">New To UNOTE ? Join Now</NavLink>
+                            <NavLink to="/signup" className="link-none">New To UNOTE ? <span className='alternate-action'>Join Now</span></NavLink>
                         </p>
                     </div>
                 </div>

@@ -121,3 +121,9 @@ body{
     justify-content: flex-start;
     align-items: flex-start;
 }
+
+.alternate-action{
+    color:#5c5ce0;
+    text-transform: uppercase;
+    font-weight: 800;
+}

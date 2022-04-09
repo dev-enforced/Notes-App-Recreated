@@ -25,3 +25,38 @@
     width: 1.5rem;
     padding: 0.5rem;
 }
+
+/* COLOR CLASSES AVAILABLE for the Color Palette */
+.color-list-1{
+    background-color: #f28b82;
+}
+.color-list-2 {
+    background-color:#fbbc04;
+}
+
+.color-list-3{
+    background-color: #fff475;
+}
+.color-list-4{
+    background-color: #ccff90;
+}
+
+.color-list-5{
+    background-color:#a7ffeb;
+}
+
+.color-list-6{
+    background-color:#cbf0f8;
+}
+
+.color-list-7{
+    background-color: #aecbfa;
+}
+
+.color-list-8{
+    background-color: #d7aefb;
+}
+
+.color-list-9{
+    background-color: #fdcfe8;
+}

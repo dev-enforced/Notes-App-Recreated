@@ -58,7 +58,7 @@ const Signup = () => {
                     </form>
                     <div className="form-actions flex-column gentle-flex-gap flex-align-center">
                         <p>
-                            <NavLink to="/login" className="link-none">Already on UNOTE ? Log In</NavLink>
+                            <NavLink to="/login" className="link-none">Already on UNOTE ? <span className='alternate-action'>Log In</span></NavLink>
                         </p>
                     </div>
                 </div>

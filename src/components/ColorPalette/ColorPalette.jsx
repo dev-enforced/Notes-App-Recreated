@@ -4,7 +4,7 @@ import "./ColorPalette.css";
 const ColorPalette = () => {
     const [colorListStyle, setColorListStyle] = useState("color-list-none")
     const toggleColorListStyle = () => {
-        setColorListStyle(classDetails => classDetails === "color-list flex-row" ? setColorListStyle("color-list-none") : ("color-list flex-row"))
+        setColorListStyle(classDetails => classDetails === "color-list flex-row" ? "color-list-none" : "color-list flex-row")
     }
 
     return (
@@ -18,7 +18,7 @@ const ColorPalette = () => {
                 {
                     colorList.map((everyColor, index) => {
                         return (
-                            <span className='color-element' key={index} style={{ backgroundColor: everyColor }} value={everyColor}></span>
+                            <span className={`color-element color-list-${index}`} key={index} value={everyColor}></span>
                         )
                     })
                 }
