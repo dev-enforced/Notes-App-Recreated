@@ -1,0 +1,19 @@
+.priority-dropdown-hidden{
+    display: none;
+}
+
+.priority-dropdown-button{
+    border: transparent;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--bg-color);
+}
+
+.priority-dropdown-section{
+    position: absolute;
+    top:2.5rem;
+    z-index:2;
+    background-color: #d3d3d3;
+    box-shadow: 1px 2px 10px #cbcaca;
+    border-radius: var(--border-rd-sm);
+}
