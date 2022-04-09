@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { useAuthentication } from 'context';
 import "./HeroSection.css";
 const HeroSection = () => {
+    const {authState:{isLoggedIn}}=useAuthentication()
     return (
         <header className='hero-wrapper flex-column flex-center'>
             <img src="./taking-notes-hero.svg" alt="Taking Notes through UNOTE" className='hero-image responsive-img' />
@@ -10,9 +12,9 @@ const HeroSection = () => {
                 <Link to="/noteshome" className="py-2 px-3  hero-btn hero-btn-primary hero-btn-outline py-2 px-3">
                     GET STARTED
                 </Link>
-                <Link to="/signup" className="py-2 px-3  hero-btn hero-btn-primary ">
+                {!isLoggedIn&&<Link to="/signup" className="py-2 px-3  hero-btn hero-btn-primary ">
                     SIGNUP
-                </Link>
+                </Link>}
             </div>
         </header>
     )
