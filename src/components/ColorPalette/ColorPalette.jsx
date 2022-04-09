@@ -18,7 +18,7 @@ const ColorPalette = () => {
                 {
                     colorList.map((everyColor, index) => {
                         return (
-                            <span className={`color-element color-list-${index}`} key={index} value={everyColor}></span>
+                            <span className={`color-element color-list-${index+1}`} key={index} value={everyColor}></span>
                         )
                     })
                 }
