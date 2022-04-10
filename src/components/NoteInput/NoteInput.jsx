@@ -3,14 +3,17 @@ import { RichTextEditor, ColorPalette, PriorityDropdown } from 'components';
 import "./NoteInput.css";
 import { useNotes } from 'context';
 const NoteInput = () => {
-    const { noteData, dispatchNoteData } = useNotes();
+    const { noteData, dispatchNoteData, addNewNote } = useNotes();
     return (
-        <form className='note-input-container' onSubmit={(e)=>{
+        <form className='note-input-container' onSubmit={(e) => {
             e.preventDefault()
-            console.log(noteData)
+            addNewNote(noteData)
         }} style={{ backgroundColor: noteData.color }}>
             <input type="text" name="title" value={noteData.title} className='note-input p-3' placeholder='ENTER TITLE' onChange={(e) => { dispatchNoteData({ type: "UPDATE_TITLE", payload: e.target.value }) }} required />
             <RichTextEditor />
+            <div className='text-center'>
+                {noteData.priorityDetails}
+            </div>
             <div className="gentle-flex flex-space-between p-4">
                 <div className="gentle-flex-gap pos-relative">
                     <ColorPalette />

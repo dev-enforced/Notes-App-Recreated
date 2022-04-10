@@ -1,25 +1,25 @@
 import React from 'react';
+import parse from "html-react-parser";
 import "./NoteItem.css";
 import { Unpinned, ArchiveMoved, Trash, Edit } from "constants";
-const NoteItem = () => {
+const NoteItem = ({ noteDetails }) => {
+  const { title, color, editorContent, priorityDetails } = noteDetails
   return (
-    <div className="card card-vertical">
+    <div className="card card-vertical" style={{ backgroundColor: color }}>
       <div className="card-header">
         <div className="card-badge card-badge-info">
-          <span>TRENDING</span>
+          <span>{priorityDetails}</span>
         </div>
         <div className="card-dismiss">
           <Unpinned className="card-dismiss-icon" />
         </div>
       </div>
-
+      <div>
+        <h4>{title}</h4>
+      </div>
       <div className="card-content">
 
-        <p className="card-pricing">
-          <span className="card-price">₹600</span>
-          <del className="card-original-price">₹1000</del>
-          <span className="card-discount">40% off</span>
-        </p>
+        {parse(editorContent)}
       </div>
 
       <div className="card-actions">
