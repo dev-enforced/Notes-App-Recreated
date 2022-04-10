@@ -7,7 +7,8 @@ const NoteInput = () => {
     return (
         <form className='note-input-container' onSubmit={(e) => {
             e.preventDefault()
-            addNewNote(noteData)
+            addNewNote(noteData);
+            dispatchNoteData({type:"RESET_INPUT_DATA"})
         }} style={{ backgroundColor: noteData.color }}>
             <input type="text" name="title" value={noteData.title} className='note-input p-3' placeholder='ENTER TITLE' onChange={(e) => { dispatchNoteData({ type: "UPDATE_TITLE", payload: e.target.value }) }} required />
             <RichTextEditor />

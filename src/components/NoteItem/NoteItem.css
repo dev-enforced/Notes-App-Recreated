@@ -1,4 +1,4 @@
-.card-actions .btn{
+/* .card-actions .btn{
     background: transparent;
 }
 
@@ -10,4 +10,53 @@
 .card-actions .btn:hover{
     color:white;
     background-color:#d311e1;
+} */
+
+.note-card{
+    height: max-content;
+    position: relative;
+    max-width: 100%;
+    box-shadow: 0 2px 3px rgb(10 10 10 / 10%),
+    0 0 0 1px rgb(10 10 10 / 10%);
+    color: var(--bg-color);
+    gap:1.4rem;
+    font-family: 'Neuton',sans-serif;
+}
+
+.note-card-description{
+    font-size: 12px;
+}
+
+.note-title-pin-container{
+    box-shadow:0 1px 2px rgb(10 10 10 / 10%);
+    gap:0.5rem;
+}
+
+
+.note-card-actions-container{
+    border-top:1px solid #dbdbdb;
+    align-items: stretch;
+}
+
+.note-card-actions-container button{
+    border: transparent;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.note-card-action-icon{
+    font-size: 1.2rem;
+    color:var(--bg-color)
+}
+
+.priority-container{
+    border-radius: 50px;
+    background-color: var(--text-color);
+    width: fit-content;
+}
+
+@media only screen and (max-width:310px){
+    .note-card{
+        width:fit-content;
+    }
 }
