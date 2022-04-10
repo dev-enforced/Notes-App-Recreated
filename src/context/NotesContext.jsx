@@ -40,8 +40,18 @@ const NotesProvider = ({ children }) => {
             console.error("ERROR WHILE UPDATING EXISTING NOTES FROM UPDATE API CALL:", error)
         }
     }
+
+    const updateNotePinStatus=async (NoteProvided)=>{
+        try {
+            const { data: { notes: notesFromResponse } } = await updateExistingNoteService({...NoteProvided,pinStatus:!NoteProvided.pinStatus}, authState.authToken);
+            setNotesList(notesFromResponse);
+        } catch (error) {
+            console.error("ERROR WHILE UPDATING EXISTING NOTES FROM UPDATE API CALL:", error)
+        }
+    }
+
     return (
-        <NotesContext.Provider value={{ addNewNote, updateExistingNote, noteData, dispatchNoteData, notesList, setNotesList }}>
+        <NotesContext.Provider value={{ updateNotePinStatus,addNewNote, updateExistingNote, noteData, dispatchNoteData, notesList, setNotesList }}>
             {children}
         </NotesContext.Provider>
     )
