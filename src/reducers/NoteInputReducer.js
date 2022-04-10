@@ -18,6 +18,8 @@ const noteInputReducer = (givenState, action) => {
             return { ...givenState, priorityDetails: payload }
         case "RESET_INPUT_DATA":
             return { ...defaultNoteData }
+        case "UPDATE_EXISTING_DATA":
+            return { ...payload }
         case "UPDATE_PIN_STATUS":
             return { ...givenState, pinStatus: !givenState.pinStatus }
         default:

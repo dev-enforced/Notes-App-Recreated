@@ -29,7 +29,8 @@ const RichTextEditor = () => {
     const { noteData, dispatchNoteData } = useNotes();
     return (
         <ReactQuill className='text-editor'
-            value={noteData.editorContent} modules={RichTextEditorSetup}
+            value={noteData.editorContent}
+            modules={RichTextEditorSetup}
             formats={formatsProvided}
             theme="snow"
             placeholder="Give your note description..."

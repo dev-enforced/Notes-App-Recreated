@@ -1,9 +1,11 @@
 import React from 'react';
 import parse from "html-react-parser";
+import { useNotes } from 'context';
 import "./NoteItem.css";
 import { Unpinned, ArchiveMoved, Trash, Edit } from "constants";
 const NoteItem = ({ noteDetails }) => {
-  const { title, color, editorContent, priorityDetails } = noteDetails
+  const { title, color, editorContent, priorityDetails } = noteDetails;
+  const { dispatchNoteData } = useNotes();
   return (
     // <div className="card card-vertical" style={{ backgroundColor: color }}>
     //   <div className="card-header">
@@ -50,7 +52,9 @@ const NoteItem = ({ noteDetails }) => {
         <span className='priority-container py-1 px-2 fw-700'>{priorityDetails}</span>
       </div>
       <div className="note-card-actions-container g-flex-row g-flex-center">
-        <button className='g-flex-row g-flex-center p-3'>
+        <button className='g-flex-row g-flex-center p-3' onClick={() => {
+          dispatchNoteData({ type: "UPDATE_EXISTING_DATA", payload: noteDetails });
+        }}>
           <Edit className="note-card-action-icon" />
         </button>
         <button className='g-flex-row g-flex-center p-3'>
