@@ -6,7 +6,7 @@ const AuthProvider = ({ children }) => {
     const localStorageDetails = JSON.parse(localStorage.getItem("AUTH-DETAILS"));
     const initialAuthState = {
         isLoggedIn: localStorageDetails ? true : false,
-        authToken: localStorageDetails?.encodedToken
+        authToken: localStorageDetails?.authToken
     }
     const [authState, setAuthState] = useState(initialAuthState);
     return (

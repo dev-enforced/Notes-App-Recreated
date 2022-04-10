@@ -7,11 +7,11 @@ const signupSubmissionHandler = async (e, signupDataGiven, authStateUpdateFuncti
         if (status === 201) {
             localStorage.setItem("AUTH-DETAILS", JSON.stringify({
                 isLoggedIn: true,
-                encodedToken: encodedTokenFromData
+                authToken: encodedTokenFromData
             }))
             authStateUpdateFunction(prev => ({
                 ...prev, isLoggedIn: true,
-                encodedToken: encodedTokenFromData
+                authToken: encodedTokenFromData
             }))
             navigatorFunction("/noteshome");
         }

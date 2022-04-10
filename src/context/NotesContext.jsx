@@ -9,7 +9,6 @@ const NotesProvider = ({ children }) => {
     const { authState } = useAuthentication();
     const [notesList, setNotesList] = useState([]);
     const [noteData, dispatchNoteData] = useReducer(noteInputReducer, defaultNoteData);
-
     useEffect(() => {
         if (authState.isLoggedIn) {
             (async () => {
