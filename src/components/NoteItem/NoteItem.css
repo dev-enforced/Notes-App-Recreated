@@ -1,7 +1,8 @@
 .note-card{
     height: max-content;
     position: relative;
-    max-width: 100%;
+    min-width:18rem;
+    max-width: 20rem;
     box-shadow: 0 2px 3px rgb(10 10 10 / 10%),
     0 0 0 1px rgb(10 10 10 / 10%);
     color: var(--bg-color);
@@ -43,6 +44,6 @@
 
 @media only screen and (max-width:310px){
     .note-card{
-        width:fit-content;
+        max-width:80%;
     }
 }
