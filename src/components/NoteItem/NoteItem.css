@@ -1,17 +1,3 @@
-/* .card-actions .btn{
-    background: transparent;
-}
-
-.card-actions .btn{
-    border-radius: 50%;
-    font-size: 1.2rem;
-}
-
-.card-actions .btn:hover{
-    color:white;
-    background-color:#d311e1;
-} */
-
 .note-card{
     height: max-content;
     position: relative;
