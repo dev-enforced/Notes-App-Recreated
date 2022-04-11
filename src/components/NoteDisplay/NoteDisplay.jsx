@@ -5,7 +5,7 @@ import "./NoteDisplay.css";
 const NoteDisplay = () => {
     const { notesList } = useNotes();
     return (
-        <div>
+        <>
             <h4 className='text-center fw-700'>ALL NOTES</h4>
             <div className="gentle-grid-responsive py-8 m-4">
                 {
@@ -14,7 +14,7 @@ const NoteDisplay = () => {
                     })
                 }
             </div>
-        </div>
+        </>
 
     )
 }

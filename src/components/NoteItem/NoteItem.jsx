@@ -21,9 +21,9 @@ const NoteItem = ({ noteDetails }) => {
       <div className="note-card-description">
         {parse(editorContent)}
       </div>
-      <div className="note-card-description">
+      {priorityDetails !== "" && <div className="note-card-description">
         <span className='priority-container py-1 px-2 fw-700'>{priorityDetails}</span>
-      </div>
+      </div>}
       <div className="note-card-actions-container g-flex-row g-flex-center">
         <button className='g-flex-row g-flex-center p-3' onClick={() => {
           dispatchNoteData({ type: "UPDATE_EXISTING_DATA", payload: noteDetails });
