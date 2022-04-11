@@ -1,3 +1,26 @@
 .text-content-editor{
     height: 8rem;
 }
+
+.quill .ql-toolbar {
+  display: flex;
+  border: transparent;
+}
+
+.quill .ql-formats button {
+  margin-bottom: 0;
+}
+
+.quill .ql-editor {
+  font-size: 1rem;
+}
+
+.quill .ql-editor img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+.ql-container.ql-snow{
+    border:transparent;
+}

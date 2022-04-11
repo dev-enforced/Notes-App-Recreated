@@ -1,36 +1,40 @@
 import React from 'react';
+import parse from "html-react-parser";
+import { useNotes } from 'context';
 import "./NoteItem.css";
-import { Unpinned, ArchiveMoved, Trash, Edit } from "constants";
-const NoteItem = () => {
+import { Unpinned, Pinned, ArchiveMoved, Trash, Edit } from "constants";
+const NoteItem = ({ noteDetails }) => {
+  const { title, color, editorContent, priorityDetails } = noteDetails;
+  const { dispatchNoteData, updateNotePinStatus } = useNotes();
   return (
-    <div className="card card-vertical">
-      <div className="card-header">
-        <div className="card-badge card-badge-info">
-          <span>TRENDING</span>
-        </div>
-        <div className="card-dismiss">
-          <Unpinned className="card-dismiss-icon" />
-        </div>
-      </div>
-
-      <div className="card-content">
-
-        <p className="card-pricing">
-          <span className="card-price">₹600</span>
-          <del className="card-original-price">₹1000</del>
-          <span className="card-discount">40% off</span>
+    <div className="note-card flex-column p-4" style={{ backgroundColor: color }}>
+      <div className="note-title-pin-container g-flex-row g-flex-space-between-align-center p-4">
+        <p className="note-card-heading fw-600">
+          {title}
         </p>
+        <div className="note-pin-container text-cursor-pointer g-flex g-flex-align-center" onClick={() => {
+          updateNotePinStatus(noteDetails);
+        }}>
+          {noteDetails.pinStatus ? <Pinned className="pin-icon fs-1-5" /> : <Unpinned className="pin-icon fs-1-5" />}
+        </div>
       </div>
-
-      <div className="card-actions">
-        <button className="btn btn-icon btn-warning-hover">
-          <Edit className="note-icon" />
+      <div className="note-card-description">
+        {parse(editorContent)}
+      </div>
+      {priorityDetails !== "" && <div className="note-card-description">
+        <span className='priority-container py-1 px-2 fw-700'>{priorityDetails}</span>
+      </div>}
+      <div className="note-card-actions-container g-flex-row g-flex-center">
+        <button className='g-flex-row g-flex-center p-3' onClick={() => {
+          dispatchNoteData({ type: "UPDATE_EXISTING_DATA", payload: noteDetails });
+        }}>
+          <Edit className="note-card-action-icon" />
         </button>
-        <button className="btn btn-icon btn-primary-hover">
-          <ArchiveMoved className="note-icon" />
+        <button className='g-flex-row g-flex-center p-3'>
+          <ArchiveMoved className="note-card-action-icon" />
         </button>
-        <button className="btn btn-icon btn-primary-hover">
-          <Trash className="note-icon" />
+        <button className='g-flex-row g-flex-center p-3'>
+          <Trash className="note-card-action-icon" />
         </button>
       </div>
     </div>

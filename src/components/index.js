@@ -8,3 +8,4 @@ export { LabelSection } from "./LabelSection/LabelSection";
 export { PriorityDropdown } from "./PriorityDropdown/PriorityDropdown";
 export { NoteDisplay } from "./NoteDisplay/NoteDisplay";
 export { NoteItem } from "./NoteItem/NoteItem";
+export { PinnedNotesSection } from "./PinnedNotesSection/PinnedNotesSection";
