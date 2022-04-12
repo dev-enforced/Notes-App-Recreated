@@ -12,6 +12,8 @@ const AppRoutes = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/noteshome" element={<PrivateRoute partGiven={<NotesHome/>}></PrivateRoute>}/>
+            <Route path="/notesarchives" element={<PrivateRoute partGiven={<NotesHome />}></PrivateRoute>} />
+            <Route path="/notestrash" element={<PrivateRoute partGiven={<NotesHome />}></PrivateRoute>} />
         </Routes>
     )
 }

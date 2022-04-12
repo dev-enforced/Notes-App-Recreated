@@ -6,7 +6,7 @@ const navLinks = [
     },
     {
         linkTitle: "Archives",
-        pathGiven: "/noteslabels",
+        pathGiven: "/notesarchives",
         iconWithTitle: "archive"
     },
     {
