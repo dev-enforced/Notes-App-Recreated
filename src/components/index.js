@@ -9,3 +9,5 @@ export { PriorityDropdown } from "./PriorityDropdown/PriorityDropdown";
 export { NoteDisplay } from "./NoteDisplay/NoteDisplay";
 export { NoteItem } from "./NoteItem/NoteItem";
 export { PinnedNotesSection } from "./PinnedNotesSection/PinnedNotesSection";
+export { ArchivedNoteItem } from "./ArchivedNoteItem/ArchivedNoteItem";
+export { TrashNoteItem } from "./TrashNoteItem/TrashNoteItem";

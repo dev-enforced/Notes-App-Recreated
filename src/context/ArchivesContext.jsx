@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { useAuthentication } from "context";
-import { receiveAllArchives } from "services";
+import { useAuthentication, useNotes } from "context";
+import { receiveAllArchives, transferServiceOfExistingNoteToArchive } from "services";
 const ArchivesContext = createContext(null);
 const useArchives = () => useContext(ArchivesContext);
 const ArchivesProvider = ({ children }) => {
     const [archivedNotesList, setArchivedNotesList] = useState([]);
     const { authState } = useAuthentication();
+    const { setNotesList } = useNotes();
     useEffect(() => {
         if (authState.isLoggedIn) {
             (async () => {
@@ -20,8 +21,18 @@ const ArchivesProvider = ({ children }) => {
             setArchivedNotesList([]);
         }
     }, [authState])
+
+    const moveExistingNoteToArchive = async (NoteDetailsGiven) => {
+        try {
+            const { data: { notes: notesFromResponse, archives: archivesFromResponse } } = await transferServiceOfExistingNoteToArchive(NoteDetailsGiven, authState.authToken);
+            setArchivedNotesList(archivesFromResponse)
+            setNotesList(notesFromResponse);
+        } catch (error) {
+            console.error("ERROR OCCURED WHILE SETTING THE NOTES AND ARCHIVES WHEN MOVING ONE TO ARCHIVE", error);
+        }
+    }
     return (
-        <ArchivesContext.Provider value={{ archivedNotesList, setArchivedNotesList }}>
+        <ArchivesContext.Provider value={{ archivedNotesList, setArchivedNotesList, moveExistingNoteToArchive }}>
             {children}
         </ArchivesContext.Provider>
     )

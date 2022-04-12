@@ -1,11 +1,12 @@
 import React from 'react';
 import parse from "html-react-parser";
-import { useNotes } from 'context';
+import { useArchives, useNotes } from 'context';
 import "./NoteItem.css";
 import { Unpinned, Pinned, ArchiveMoved, Trash, Edit } from "constants";
 const NoteItem = ({ noteDetails }) => {
-  const { title, color, editorContent, priorityDetails } = noteDetails;
+  const { title, color, editorContent, priorityDetails, pinStatus } = noteDetails;
   const { dispatchNoteData, updateNotePinStatus } = useNotes();
+  const { moveExistingNoteToArchive } = useArchives()
   return (
     <div className="note-card flex-column p-4" style={{ backgroundColor: color }}>
       <div className="note-title-pin-container g-flex-row g-flex-space-between-align-center p-4">
@@ -15,7 +16,7 @@ const NoteItem = ({ noteDetails }) => {
         <div className="note-pin-container text-cursor-pointer g-flex g-flex-align-center" onClick={() => {
           updateNotePinStatus(noteDetails);
         }}>
-          {noteDetails.pinStatus ? <Pinned className="pin-icon fs-1-5" /> : <Unpinned className="pin-icon fs-1-5" />}
+          {pinStatus ? <Pinned className="pin-icon fs-1-5" /> : <Unpinned className="pin-icon fs-1-5" />}
         </div>
       </div>
       <div className="note-card-description">
@@ -30,7 +31,9 @@ const NoteItem = ({ noteDetails }) => {
         }}>
           <Edit className="note-card-action-icon" />
         </button>
-        <button className='g-flex-row g-flex-center p-3'>
+        <button className='g-flex-row g-flex-center p-3' onClick={() => {
+          moveExistingNoteToArchive(noteDetails);
+        }}>
           <ArchiveMoved className="note-card-action-icon" />
         </button>
         <button className='g-flex-row g-flex-center p-3'>
