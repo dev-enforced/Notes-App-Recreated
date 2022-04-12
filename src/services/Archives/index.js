@@ -1,0 +1,1 @@
+export { receiveAllArchives } from "./receiveAllArchives";
