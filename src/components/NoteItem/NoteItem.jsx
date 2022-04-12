@@ -1,12 +1,13 @@
 import React from 'react';
 import parse from "html-react-parser";
-import { useArchives, useNotes } from 'context';
+import { useArchives, useNotes, useTrash } from 'context';
 import "./NoteItem.css";
 import { Unpinned, Pinned, ArchiveMoved, Trash, Edit } from "constants";
 const NoteItem = ({ noteDetails }) => {
   const { title, color, editorContent, priorityDetails, pinStatus } = noteDetails;
   const { dispatchNoteData, updateNotePinStatus } = useNotes();
   const { moveExistingNoteToArchive } = useArchives()
+  const { addExistingNoteToTrash } = useTrash()
   return (
     <div className="note-card flex-column p-4" style={{ backgroundColor: color }}>
       <div className="note-title-pin-container g-flex-row g-flex-space-between-align-center p-4">
@@ -36,7 +37,9 @@ const NoteItem = ({ noteDetails }) => {
         }}>
           <ArchiveMoved className="note-card-action-icon" />
         </button>
-        <button className='g-flex-row g-flex-center p-3'>
+        <button className='g-flex-row g-flex-center p-3' onClick={() => {
+          addExistingNoteToTrash(noteDetails);
+        }}>
           <Trash className="note-card-action-icon" />
         </button>
       </div>
