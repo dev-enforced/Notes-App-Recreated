@@ -1,7 +1,7 @@
 import axios from "axios";
 const deleteNoteForeverService = async (givenNote, tokenValue) => {
     try {
-        const response = await axios.delete(`/api/trash/delete/${givenNote._id}`, { note: { ...givenNote } }, {
+        const response = await axios.delete(`/api/trash/delete/${givenNote._id}`, {
             headers: {
                 authorization: tokenValue
             }
