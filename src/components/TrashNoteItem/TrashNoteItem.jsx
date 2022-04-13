@@ -4,7 +4,7 @@ import { Unpinned, Pinned, Restore, RemoveForever } from "constants";
 import "../NoteItem/NoteItem.css";
 import { useTrash } from "context";
 const TrashNoteItem = ({ noteDetails }) => {
-    const { title, color, editorContent, priorityDetails } = noteDetails;
+    const { title, color, editorContent, priorityDetails,pinStatus } = noteDetails;
     const { restoreNoteFromTrash, removeNoteFromTrash } = useTrash();
     return (
         <div className="note-card flex-column p-4" style={{ backgroundColor: color }}>
@@ -12,10 +12,8 @@ const TrashNoteItem = ({ noteDetails }) => {
                 <p className="note-card-heading fw-600">
                     {title}
                 </p>
-                <div className="note-pin-container text-cursor-pointer g-flex g-flex-align-center" onClick={() => {
-                    console.log("RESTORE ICON SECTION")
-                }}>
-                    {noteDetails.pinStatus ? <Pinned className="pin-icon fs-1-5" /> : <Unpinned className="pin-icon fs-1-5" />}
+                <div className="note-pin-container text-cursor-pointer g-flex g-flex-align-center">
+                    {pinStatus ? <Pinned className="pin-icon fs-1-5" /> : <Unpinned className="pin-icon fs-1-5" />}
                 </div>
             </div>
             <div className="note-card-description">
