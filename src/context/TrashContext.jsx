@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useAuthentication, useNotes, useArchives } from "context";
-import { receiveAllTrash, transferServiceOfArchivedNoteToTrash } from "services";
-import { transferServiceOfExistingNoteToTrash } from "services/Notes";
+import { receiveAllTrash, transferServiceOfArchivedNoteToTrash, transferServiceOfExistingNoteToTrash, deleteNoteForeverService, restoreExistingNoteFromTrashService } from "services";
 const TrashContext = createContext(null);
 const useTrash = () => useContext(TrashContext);
 
@@ -43,8 +42,27 @@ const TrashProvider = ({ children }) => {
             console.error("ERROR OCCURED WHILE SETTING UP ITEMS WHEN MOVING FROM ARCHIVES TO TRASH");
         }
     }
+
+    const restoreNoteFromTrash = async (NoteProvided) => {
+        try {
+            const { data: { notes: notesFromResponse, trash: trashFromResponse } } = await restoreExistingNoteFromTrashService(NoteProvided, authState.authToken);
+            setNotesList(notesFromResponse);
+            setTrashNotesList(trashFromResponse);
+        } catch (error) {
+            console.error("ERROR OCCURED WHILE SETTING UP TRASH AND NOTES SECTION AT THE TIME OF RESTORING A NOTE", error);
+        }
+    }
+
+    const removeNoteFromTrash = async (NoteProvided) => {
+        try {
+            const { data: { trash: trashFromResponse } } = await deleteNoteForeverService(NoteProvided, authState.authToken);
+            setTrashNotesList(trashFromResponse);
+        } catch (error) {
+            console.error("ERROR OCCURED WHILE SETTING UP TRASH SECTION WHEN REMOVING A NOTE FOREVER", error);
+        }
+    }
     return (
-        <TrashContext.Provider value={{ trashNotesList, setTrashNotesList, addExistingNoteToTrash, addArchivedNoteToTrash }}>
+        <TrashContext.Provider value={{ trashNotesList, setTrashNotesList, addExistingNoteToTrash, addArchivedNoteToTrash, restoreNoteFromTrash, removeNoteFromTrash }}>
             {children}
         </TrashContext.Provider>
     )
