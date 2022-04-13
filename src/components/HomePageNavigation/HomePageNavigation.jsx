@@ -29,7 +29,7 @@ const HomePageNavigation = () => {
           }
         </li>
         <li>
-          <Dark className="nav-icon text-cursor-pointer" />
+          <Dark className="nav-icon text-cursor-pointer" title="Toggle Theme"/>
         </li>
       </ul>
     </nav>

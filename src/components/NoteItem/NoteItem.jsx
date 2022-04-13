@@ -17,7 +17,7 @@ const NoteItem = ({ noteDetails }) => {
         <div className="note-pin-container text-cursor-pointer g-flex g-flex-align-center" onClick={() => {
           updateNotePinStatus(noteDetails);
         }}>
-          {pinStatus ? <Pinned className="pin-icon fs-1-5" /> : <Unpinned className="pin-icon fs-1-5" />}
+          {pinStatus ? <Pinned className="pin-icon fs-1-5" title="Pinned Note" /> : <Unpinned className="pin-icon fs-1-5" title="Unpinned Note" />}
         </div>
       </div>
       <div className="note-card-description">
@@ -30,17 +30,17 @@ const NoteItem = ({ noteDetails }) => {
         <button className='g-flex-row g-flex-center p-3' onClick={() => {
           dispatchNoteData({ type: "UPDATE_EXISTING_DATA", payload: noteDetails });
         }}>
-          <Edit className="note-card-action-icon" />
+          <Edit className="note-card-action-icon" title="Edit Existing Note" />
         </button>
         <button className='g-flex-row g-flex-center p-3' onClick={() => {
           moveExistingNoteToArchive(noteDetails);
         }}>
-          <ArchiveMoved className="note-card-action-icon" />
+          <ArchiveMoved className="note-card-action-icon" title="Move Existing Note To Archive" />
         </button>
         <button className='g-flex-row g-flex-center p-3' onClick={() => {
           addExistingNoteToTrash(noteDetails);
         }}>
-          <Trash className="note-card-action-icon" />
+          <Trash className="note-card-action-icon" title="Move Existing Note To Trash" />
         </button>
       </div>
     </div>
