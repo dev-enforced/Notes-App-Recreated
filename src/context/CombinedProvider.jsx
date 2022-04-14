@@ -1,11 +1,15 @@
 import React from "react";
-import { AuthProvider, NotesProvider } from "context";
+import { AuthProvider, NotesProvider, ArchivesProvider, TrashProvider } from "context";
 
 const CombinedProvider = ({ children }) => {
     return (
         <AuthProvider>
             <NotesProvider>
-                {children}
+                <ArchivesProvider>
+                    <TrashProvider>
+                        {children}
+                    </TrashProvider>
+                </ArchivesProvider>
             </NotesProvider>
         </AuthProvider>
     )

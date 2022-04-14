@@ -1,11 +1,13 @@
 import React from 'react';
 import parse from "html-react-parser";
-import { useNotes } from 'context';
+import { useArchives, useNotes, useTrash } from 'context';
 import "./NoteItem.css";
 import { Unpinned, Pinned, ArchiveMoved, Trash, Edit } from "constants";
 const NoteItem = ({ noteDetails }) => {
-  const { title, color, editorContent, priorityDetails } = noteDetails;
+  const { title, color, editorContent, priorityDetails, pinStatus } = noteDetails;
   const { dispatchNoteData, updateNotePinStatus } = useNotes();
+  const { moveExistingNoteToArchive } = useArchives()
+  const { addExistingNoteToTrash } = useTrash()
   return (
     <div className="note-card flex-column p-4" style={{ backgroundColor: color }}>
       <div className="note-title-pin-container g-flex-row g-flex-space-between-align-center p-4">
@@ -15,7 +17,7 @@ const NoteItem = ({ noteDetails }) => {
         <div className="note-pin-container text-cursor-pointer g-flex g-flex-align-center" onClick={() => {
           updateNotePinStatus(noteDetails);
         }}>
-          {noteDetails.pinStatus ? <Pinned className="pin-icon fs-1-5" /> : <Unpinned className="pin-icon fs-1-5" />}
+          {pinStatus ? <Pinned className="pin-icon fs-1-5" title="Pinned Note" /> : <Unpinned className="pin-icon fs-1-5" title="Unpinned Note" />}
         </div>
       </div>
       <div className="note-card-description">
@@ -28,13 +30,17 @@ const NoteItem = ({ noteDetails }) => {
         <button className='g-flex-row g-flex-center p-3' onClick={() => {
           dispatchNoteData({ type: "UPDATE_EXISTING_DATA", payload: noteDetails });
         }}>
-          <Edit className="note-card-action-icon" />
+          <Edit className="note-card-action-icon" title="Edit Existing Note" />
         </button>
-        <button className='g-flex-row g-flex-center p-3'>
-          <ArchiveMoved className="note-card-action-icon" />
+        <button className='g-flex-row g-flex-center p-3' onClick={() => {
+          moveExistingNoteToArchive(noteDetails);
+        }}>
+          <ArchiveMoved className="note-card-action-icon" title="Move Existing Note To Archive" />
         </button>
-        <button className='g-flex-row g-flex-center p-3'>
-          <Trash className="note-card-action-icon" />
+        <button className='g-flex-row g-flex-center p-3' onClick={() => {
+          addExistingNoteToTrash(noteDetails);
+        }}>
+          <Trash className="note-card-action-icon" title="Move Existing Note To Trash" />
         </button>
       </div>
     </div>

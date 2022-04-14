@@ -1,2 +1,4 @@
-export { getLoginResponse, getSignupResponse, signupSubmissionHandler, loginSubmissionHandler, logoutService } from "./Authentication";
-export { receiveAllNotes, addNewNoteService, updateExistingNoteService } from "./Notes";
+export * from "./Authentication";
+export * from "./Notes";
+export * from "./Archives";
+export * from "./Trash";
