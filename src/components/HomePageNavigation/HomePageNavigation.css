@@ -1,52 +1,52 @@
-.home-page-nav{
-    padding:1rem 2rem;
-    background-color: #FAFAFA;
-    min-height: 10vh;
-    z-index:2;
-    box-shadow: 0 0 10px #172a3a33;
-    position: sticky;
-    top:0;
-    gap:1rem;
-    line-height: 1.5rem;
+.home-page-nav {
+  padding: 1rem 2rem;
+  background-color: #fafafa;
+  min-height: 10vh;
+  z-index: 2;
+  box-shadow: 0 0 10px #172a3a33;
+  position: sticky;
+  top: 0;
+  gap: 1rem;
+  line-height: 1.5rem;
 }
 
-.home-redirect{
-    gap:0.5rem;
-    width: max-content;
+.home-redirect {
+  gap: 0.5rem;
+  width: max-content;
 }
 
-.home-logo{
-    height: 2.5rem;
-    width: 2.5rem;
-    object-fit: cover;
+.home-logo {
+  height: 2.5rem;
+  width: 2.5rem;
+  object-fit: cover;
 }
 
-.home-title{
-    font-size:1.5rem;
-    font-weight: 500;
-    color:var(--bg-color);
-    font-family:"Neuton",serif;
+.home-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--bg-color);
+  font-family: "Neuton", serif;
 }
 
-.home-links{
-    color: var(--bg-color);
-    gap:1rem;
+.home-links {
+  color: var(--bg-color);
+  gap: 1rem;
 }
 
-.home-link{
-    font-size: 1.2rem;
-    line-height: 1.5rem;
+.home-link {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
 }
 
-.home-link:hover{
-    color: #5c5ce0;
+.home-link:hover {
+  color: #5c5ce0;
 }
 
-.home-link.active{
-    border-bottom: 2px solid #5c5ce0;
+.home-link.active {
+  border-bottom: 2px solid #5c5ce0;
 }
 
-.nav-icon{
-    font-size:1.3rem;
-    color:#5c5ce0;
+.nav-icon {
+  font-size: 1.3rem;
+  color: #5c5ce0;
 }

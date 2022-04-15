@@ -1,62 +1,62 @@
-.color-selector-btn{
-    border: transparent;
-    background-color: transparent;
-    cursor: pointer;
-    color: var(--bg-color);
+.color-selector-btn {
+  border: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--bg-color);
 }
-.color-list{
-    width: 14rem;
-    top:2.5rem;
-    z-index: 2;
-    position: absolute;
-    border-radius: var(--border-rd-md);
-    gap:1rem;
-    padding: 0.7rem 1rem;
-    background-color: #253053;
-    box-shadow: 1px 2px 15px #d1d1d1;
+.color-list {
+  width: 14rem;
+  top: 2.5rem;
+  z-index: 2;
+  position: absolute;
+  border-radius: var(--border-rd-md);
+  gap: 1rem;
+  padding: 0.7rem 1rem;
+  background-color: #253053;
+  box-shadow: 1px 2px 15px #d1d1d1;
 }
-.color-list-none{
-    display: none;
+.color-list-none {
+  display: none;
 }
 
-.color-element{
-    border-radius: var(--border-rd-circle);
-    height: 1.5rem;
-    width: 1.5rem;
-    padding: 0.5rem;
+.color-element {
+  border-radius: var(--border-rd-circle);
+  height: 1.5rem;
+  width: 1.5rem;
+  padding: 0.5rem;
 }
 
 /* COLOR CLASSES AVAILABLE for the Color Palette */
-.color-list-1{
-    background-color: #f28b82;
+.color-list-1 {
+  background-color: #f28b82;
 }
 .color-list-2 {
-    background-color:#fbbc04;
+  background-color: #fbbc04;
 }
 
-.color-list-3{
-    background-color: #fff475;
+.color-list-3 {
+  background-color: #fff475;
 }
-.color-list-4{
-    background-color: #ccff90;
-}
-
-.color-list-5{
-    background-color:#a7ffeb;
+.color-list-4 {
+  background-color: #ccff90;
 }
 
-.color-list-6{
-    background-color:#cbf0f8;
+.color-list-5 {
+  background-color: #a7ffeb;
 }
 
-.color-list-7{
-    background-color: #aecbfa;
+.color-list-6 {
+  background-color: #cbf0f8;
 }
 
-.color-list-8{
-    background-color: #d7aefb;
+.color-list-7 {
+  background-color: #aecbfa;
 }
 
-.color-list-9{
-    background-color: #fdcfe8;
+.color-list-8 {
+  background-color: #d7aefb;
+}
+
+.color-list-9 {
+  background-color: #fdcfe8;
 }

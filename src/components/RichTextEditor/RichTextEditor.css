@@ -1,5 +1,5 @@
-.text-content-editor{
-    height: 8rem;
+.text-content-editor {
+  height: 8rem;
 }
 
 .quill .ql-toolbar {
@@ -21,6 +21,6 @@
   display: inline-block;
 }
 
-.ql-container.ql-snow{
-    border:transparent;
+.ql-container.ql-snow {
+  border: transparent;
 }

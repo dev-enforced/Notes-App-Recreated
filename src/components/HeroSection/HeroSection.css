@@ -1,69 +1,69 @@
-.hero-wrapper{
-    grid-area: hero-section;
-    min-height: calc(90vh);
-    padding: 1rem;
-    max-width: 100%;
-    gap:0.4rem;
+.hero-wrapper {
+  grid-area: hero-section;
+  min-height: calc(90vh);
+  padding: 1rem;
+  max-width: 100%;
+  gap: 0.4rem;
 }
-.hero-image{
-    margin: 0;
-    max-height: 50vh;
+.hero-image {
+  margin: 0;
+  max-height: 50vh;
 }
-.responsive-img{
-    max-inline-size: 100%;
-    block-size: auto;
-    font-size: inherit;
-    display: block;
-    max-width: 100%;
+.responsive-img {
+  max-inline-size: 100%;
+  block-size: auto;
+  font-size: inherit;
+  display: block;
+  max-width: 100%;
 }
-.hero-heading{
-    max-width: max-content;
-    text-align: center;
-    color: var(--bg-color);
-    font-family:"Roboto-slab",serif;
-}
-
-.hero-links-wrapper{
-    margin-top: 1.5rem;
-    gap: 1rem;
-    max-width: 100%;
+.hero-heading {
+  max-width: max-content;
+  text-align: center;
+  color: var(--bg-color);
+  font-family: "Roboto-slab", serif;
 }
 
-.hero-links-wrapper a{
-    text-decoration: none;
+.hero-links-wrapper {
+  margin-top: 1.5rem;
+  gap: 1rem;
+  max-width: 100%;
 }
 
-.hero-btn{
-    display: inline-block;
-    vertical-align: middle;
-    width: max-content;
-    min-width: 80px;
-    height: max-content;
-    border: 2px solid #0d1c29;
-    border-radius: var(--border-rd-sm);
-    color: #fafafa;
-    background-color: #0d1c29;
-    text-align: center;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem 0.75rem;
+.hero-links-wrapper a {
+  text-decoration: none;
+}
+
+.hero-btn {
+  display: inline-block;
+  vertical-align: middle;
+  width: max-content;
+  min-width: 80px;
+  height: max-content;
+  border: 2px solid #0d1c29;
+  border-radius: var(--border-rd-sm);
+  color: #fafafa;
+  background-color: #0d1c29;
+  text-align: center;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
 }
 
 .hero-btn-primary {
-    background-color: #5c5ce0;
-    border: 2px solid #5c5ce0;
+  background-color: #5c5ce0;
+  border: 2px solid #5c5ce0;
 }
 
 .hero-btn.hero-btn-outline {
-    background-color: transparent;
-    color: #0d1c29;
+  background-color: transparent;
+  color: #0d1c29;
 }
 
-.hero-btn-outline.hero-btn-primary{
-    color: #5c5ce0;
+.hero-btn-outline.hero-btn-primary {
+  color: #5c5ce0;
 }

@@ -1,17 +1,17 @@
-.homepage-wrapper{
-    display: grid;
-    grid-template-columns: auto repeat(5,1fr);
-    grid-template-areas:
+.homepage-wrapper {
+  display: grid;
+  grid-template-columns: auto repeat(5, 1fr);
+  grid-template-areas:
     "hero-section"
-    "footer"
+    "footer";
 }
 
-@media only screen and (max-width:768px){
-    .homepage-wrapper{
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-        "hero-section"
-        "footer";
-        position: relative;
-    }
+@media only screen and (max-width: 768px) {
+  .homepage-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "hero-section"
+      "footer";
+    position: relative;
+  }
 }

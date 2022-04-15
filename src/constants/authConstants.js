@@ -1,16 +1,16 @@
 const initialSignupData = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: ""
-}
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+};
 
 const initialLoginData = {
-    email: "",
-    password: ""
-}
+  email: "",
+  password: "",
+};
 const guestCredentials = {
-    email: "himmatsingh@gmail.com",
-    password: "specialops1.5"
-}
-export { initialSignupData, initialLoginData, guestCredentials }
+  email: "himmatsingh@gmail.com",
+  password: "specialops1.5",
+};
+export { initialSignupData, initialLoginData, guestCredentials };
