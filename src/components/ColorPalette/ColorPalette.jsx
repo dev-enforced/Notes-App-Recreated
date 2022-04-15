@@ -1,39 +1,55 @@
-import React, { useState } from 'react';
-import { colorList } from 'constants';
+import React from "react";
+import { useNotes } from "context";
+import { colorList } from "constants";
 import "./ColorPalette.css";
-import { useNotes } from 'context';
-const ColorPalette = () => {
-    const [colorListStyle, setColorListStyle] = useState("color-list-none")
-    const toggleColorListStyle = () => {
-        setColorListStyle(classDetails => classDetails === "color-list flex-row" ? "color-list-none" : "color-list flex-row")
-    }
-    const { dispatchNoteData } = useNotes();
-    return (
-        <div className='color-palette-action' onClick={(e) => {
-            e.preventDefault();
-        }}>
-            <button className='color-selector-btn' onClick={(e) => {
-                e.preventDefault();
-                toggleColorListStyle();
-            }}>
-                <span className="material-icons-outlined app-icon">
-                    palette
-                </span>
-            </button>
-            <div className={colorListStyle}>
-                {
-                    colorList.map((everyColor, index) => {
-                        return (
-                            <span onClick={() => {
-                                dispatchNoteData({ type: "UPDATE_COLOR", payload: everyColor });
-                                toggleColorListStyle();
-                            }} className={`color-element color-list-${index + 1}`} key={index} value={everyColor}></span>
-                        )
-                    })
-                }
-            </div>
-        </div>
-    )
-}
+const ColorPalette = ({ activeDropdown, setActiveDropdown }) => {
+  const { dispatchNoteData } = useNotes();
+  const toggleColorDropdown = () => {
+    setActiveDropdown((currentValue) => ({
+      priorityDropdown: false,
+      labelDropdown: false,
+      colorDropdown: !currentValue.colorDropdown,
+    }));
+  };
+  return (
+    <div
+      className="color-palette-action"
+      onClick={(e) => {
+        e.preventDefault();
+      }}
+    >
+      <button
+        className="color-selector-btn"
+        onClick={(e) => {
+          e.preventDefault();
+          toggleColorDropdown();
+        }}
+      >
+        <span className="material-icons-outlined app-icon">palette</span>
+      </button>
+      <div
+        className={
+          activeDropdown.colorDropdown
+            ? "color-list flex-row"
+            : "color-list-none"
+        }
+      >
+        {colorList.map((everyColor, index) => {
+          return (
+            <span
+              onClick={() => {
+                dispatchNoteData({ type: "UPDATE_COLOR", payload: everyColor });
+                toggleColorDropdown();
+              }}
+              className={`color-element color-list-${index + 1}`}
+              key={index}
+              value={everyColor}
+            ></span>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
 export { ColorPalette };

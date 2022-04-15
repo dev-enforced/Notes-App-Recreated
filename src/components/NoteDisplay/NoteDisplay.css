@@ -1,3 +1,3 @@
-.gentle-grid-responsive{
-    grid-template-columns: repeat(auto-fit,minmax(24em,1fr));
+.gentle-grid-responsive {
+  grid-template-columns: repeat(auto-fit, minmax(24em, 1fr));
 }
