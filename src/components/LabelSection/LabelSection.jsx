@@ -49,7 +49,7 @@ const LabelSection = ({ activeDropdown, setActiveDropdown }) => {
     return (
         <div className="priority-list-dropdown-container">
             <button
-                className="priority-dropdown-button"
+                className="label-dropdown-button"
                 onClick={(e) => {
                     e.preventDefault();
                     toggleLabelDropdown();
