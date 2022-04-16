@@ -11,3 +11,4 @@ export { NoteItem } from "./NoteItem/NoteItem";
 export { PinnedNotesSection } from "./PinnedNotesSection/PinnedNotesSection";
 export { ArchivedNoteItem } from "./ArchivedNoteItem/ArchivedNoteItem";
 export { TrashNoteItem } from "./TrashNoteItem/TrashNoteItem";
+export { FilterModal } from "./FilterModal/FilterModal";
