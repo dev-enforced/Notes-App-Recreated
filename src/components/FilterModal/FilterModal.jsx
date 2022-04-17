@@ -77,6 +77,18 @@ const FilterModal = ({ checkDisplayModal }) => {
                           className="note-label-input"
                           type="checkbox"
                           id={everyLabel}
+                          checked={currentFilterState.selectedLabels.includes(everyLabel)}
+                          onChange={(e)=>{
+                              e.target.checked
+                                ? filterStateUpdate({
+                                    type: "ADD_LABEL",
+                                    payload: everyLabel,
+                                  })
+                                : filterStateUpdate({
+                                    type: "REMOVE_LABEL",
+                                    payload: everyLabel,
+                                  });
+                          }}
                         />
 
                         {everyLabel}

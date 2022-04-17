@@ -32,7 +32,21 @@ const FilterProvider = ({ children }) => {
       return [...providedNotesList];
     }
   };
-  // const labelsSort = (providedNotesList, givenFilterState) => {};
+  const labelsSort = (providedNotesList, givenFilterState) => {
+    const { selectedLabels } = givenFilterState;
+    if (selectedLabels.length !== 0) {
+      const newList = providedNotesList.filter((everyNote) => {
+        const { labels } = everyNote;
+        const generatedResult = labels.map((everyNoteLabel) =>
+          selectedLabels.includes(everyNoteLabel) ? true : false
+        );
+        return generatedResult.includes(true);
+      });
+      return newList;
+    } else {
+      return [...providedNotesList];
+    }
+  };
   const filterReducer = (givenFilterState, { type, payload }) => {
     switch (type) {
       case "OLD_TO_RECENT":
@@ -50,6 +64,22 @@ const FilterProvider = ({ children }) => {
             oldToRecent: false,
             recentToOld: !givenFilterState.sortBy.recentToOld,
           },
+        };
+
+      case "ADD_LABEL":
+        return {
+          ...givenFilterState,
+          selectedLabels: givenFilterState.selectedLabels.includes(payload)
+            ? [...givenFilterState.selectedLabels]
+            : [...givenFilterState.selectedLabels, payload],
+        };
+
+      case "REMOVE_LABEL":
+        return {
+          ...givenFilterState,
+          selectedLabels: givenFilterState.selectedLabels.filter(
+            (everyLabel) => everyLabel !== payload
+          ),
         };
       default:
         return { ...givenFilterState };
@@ -71,7 +101,7 @@ const FilterProvider = ({ children }) => {
     };
   };
 
-  const finalFilteredList = cumulativeFilters(dateSort)(
+  const finalFilteredList = cumulativeFilters(labelsSort, dateSort)(
     notesList,
     currentFilterState
   );
