@@ -63,5 +63,5 @@ With that you can see your app running on `localhost:3000`
 - Toasts
 - 404 Page for Undefined Routes
 - Search Notes
-- Update Note Categories
+- Theme Toggle Button
 - Develop Separate Modals for Editing Notes
