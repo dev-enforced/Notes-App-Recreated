@@ -28,7 +28,10 @@ const NoteInput = () => {
     if (checkProductExistence) {
       updateExistingNote(noteData);
     } else {
-      addNewNote(noteData);
+      addNewNote({
+        ...noteData,
+        creationDetails: new Date(),
+      });
     }
     dispatchNoteData({ type: "RESET_INPUT_DATA" });
     setActiveDropdown({

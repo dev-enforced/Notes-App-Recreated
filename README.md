@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+<div align="center">
+  
+# UNOTE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### UNOTE is a note taking application .
 
-## Available Scripts
+Guaranteed to help you get productive on your work with its note taking features!
 
-In the project directory, you can run:
+![Forks](https://img.shields.io/github/forks/dev-enforced/notes-app-recreated)
+![Stars](https://img.shields.io/github/stars/dev-enforced/notes-app-recreated)
 
-### `yarn start`
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Tech Stack
 
-### `yarn test`
+  <h5>Front End:</h5> <span><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/ContextAPI-593D88?style=for-the-badge&logo=redux&logoColor=white"/><img style=padding:".2rem" src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white"/> </span>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  <h5>Backend</h5>
+    <a href="https://mockbee.netlify.app/" rel="noopener" target="_blank"><img src="https://user-images.githubusercontent.com/47717492/139522047-d7c1be05-8c59-4d28-8c9e-76f94dfad25e.png" width="120" height="120" align="center"/></a>
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to run app locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Clone the app
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`git clone https://github.com/dev-enforced/Notes-App-Recreated.git`
 
-### `yarn eject`
+### 2. Install the dependencies in your root folder where you cloned the app
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`npm install`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. Create .env file and add secret key. this will help you use `MockBee` APIs
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+`REACT_APP_JWT_SECRET=<your-jwt-secret>`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 4. Run the app
 
-## Learn More
+`npm start`
+With that you can see your app running on `localhost:3000`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Live link
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[UNOTE](https://notes-app-recreated.vercel.app/)
 
-### Code Splitting
+## Features:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Add Notes
+- Edit Notes
+- Archive Notes
+- Delete Notes
+- Add Note labels
+- Add Note priority
+- Add Note color
+- Filter and sort Notes
+- Rich Text Editor
+- Authentication
 
-### Analyzing the Bundle Size
+## Features To Be Added:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Toasts
+- 404 Page for Undefined Routes
+- Search Notes
+- Update Note Categories
+- Develop Separate Modals for Editing Notes

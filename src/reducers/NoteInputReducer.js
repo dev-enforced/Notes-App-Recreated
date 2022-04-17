@@ -5,6 +5,7 @@ const defaultNoteData = {
   priorityDetails: "Low",
   pinStatus: false,
   labels: [],
+  creationDetails:"",
 };
 const noteInputReducer = (givenState, action) => {
   const { type, payload } = action;

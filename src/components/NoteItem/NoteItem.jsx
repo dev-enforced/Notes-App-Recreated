@@ -3,9 +3,17 @@ import parse from "html-react-parser";
 import { useArchives, useNotes, useTrash } from "context";
 import "./NoteItem.css";
 import { Unpinned, Pinned, ArchiveMoved, Trash, Edit } from "constants";
+import { dateExtractor, timeExtractor } from "utilities";
 const NoteItem = ({ noteDetails }) => {
-  const { title, color, editorContent, priorityDetails, pinStatus, labels } =
-    noteDetails;
+  const {
+    title,
+    color,
+    editorContent,
+    priorityDetails,
+    pinStatus,
+    labels,
+    creationDetails,
+  } = noteDetails;
   const { dispatchNoteData, updateNotePinStatus } = useNotes();
   const { moveExistingNoteToArchive } = useArchives();
   const { addExistingNoteToTrash } = useTrash();
@@ -50,7 +58,12 @@ const NoteItem = ({ noteDetails }) => {
             );
           })}
       </div>
-
+      <div className="note-card-description g-flex-row g-flex-space-between">
+        <span>{creationDetails && dateExtractor(creationDetails)}</span>
+        <span className="fw-600">
+          {creationDetails && timeExtractor(creationDetails)}
+        </span>
+      </div>
       <div className="note-card-actions-container g-flex-row g-flex-center">
         <button
           className="g-flex-row g-flex-center p-3"
