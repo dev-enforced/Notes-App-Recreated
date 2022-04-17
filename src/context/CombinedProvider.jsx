@@ -4,15 +4,18 @@ import {
   NotesProvider,
   ArchivesProvider,
   TrashProvider,
+  FilterProvider,
 } from "context";
 
 const CombinedProvider = ({ children }) => {
   return (
     <AuthProvider>
       <NotesProvider>
-        <ArchivesProvider>
-          <TrashProvider>{children}</TrashProvider>
-        </ArchivesProvider>
+        <FilterProvider>
+          <ArchivesProvider>
+            <TrashProvider>{children}</TrashProvider>
+          </ArchivesProvider>
+        </FilterProvider>
       </NotesProvider>
     </AuthProvider>
   );

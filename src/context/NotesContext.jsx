@@ -3,7 +3,7 @@ import React, {
   useContext,
   useState,
   useEffect,
-  useReducer,
+  useReducer
 } from "react";
 import { defaultNoteData, noteInputReducer } from "reducers";
 import {
