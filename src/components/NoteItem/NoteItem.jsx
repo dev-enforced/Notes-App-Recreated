@@ -59,8 +59,10 @@ const NoteItem = ({ noteDetails }) => {
           })}
       </div>
       <div className="note-card-description g-flex-row g-flex-space-between">
-        <span>{dateExtractor(creationDetails)}</span>
-        <span className="fw-600">{timeExtractor(creationDetails)}</span>
+        <span>{creationDetails && dateExtractor(creationDetails)}</span>
+        <span className="fw-600">
+          {creationDetails && timeExtractor(creationDetails)}
+        </span>
       </div>
       <div className="note-card-actions-container g-flex-row g-flex-center">
         <button

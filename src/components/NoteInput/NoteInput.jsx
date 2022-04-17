@@ -7,6 +7,7 @@ import {
 } from "components";
 import "./NoteInput.css";
 import { useNotes } from "context";
+import { dateFormatter } from "constants";
 const NoteInput = () => {
   const {
     updateExistingNote,
@@ -28,7 +29,10 @@ const NoteInput = () => {
     if (checkProductExistence) {
       updateExistingNote(noteData);
     } else {
-      addNewNote(noteData);
+      addNewNote({
+        ...noteData,
+        creationDetails: [...dateFormatter.formatToParts(new Date())],
+      });
     }
     dispatchNoteData({ type: "RESET_INPUT_DATA" });
     setActiveDropdown({

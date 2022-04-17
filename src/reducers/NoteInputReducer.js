@@ -1,4 +1,3 @@
-import { dateFormatter } from "constants";
 const defaultNoteData = {
   title: "",
   editorContent: "",
@@ -6,7 +5,7 @@ const defaultNoteData = {
   priorityDetails: "Low",
   pinStatus: false,
   labels: [],
-  creationDetails: [...dateFormatter.formatToParts(new Date())],
+  creationDetails:"",
 };
 const noteInputReducer = (givenState, action) => {
   const { type, payload } = action;
