@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { useNotes } from "context";
-import { dateSort, labelsSort, cumulativeFilters } from "services";
+import { dateSort, labelsSort, cumulativeFilters } from "utilities";
 import { initialNoteFilterState, noteFilterReducer } from "reducers";
 const FilterContext = createContext(null);
 
