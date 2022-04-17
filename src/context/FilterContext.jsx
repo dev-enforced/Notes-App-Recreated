@@ -81,6 +81,8 @@ const FilterProvider = ({ children }) => {
             (everyLabel) => everyLabel !== payload
           ),
         };
+      case "REMOVE_FILTERS":
+        return { ...initialFilterState };
       default:
         return { ...givenFilterState };
     }

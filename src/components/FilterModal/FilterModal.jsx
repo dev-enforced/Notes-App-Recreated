@@ -4,13 +4,24 @@ import "./FilterModal.css";
 const FilterModal = ({ checkDisplayModal }) => {
   const { noteLabels } = useNotes();
   const { currentFilterState, filterStateUpdate } = useFilters();
+  const {
+    sortBy: { oldToRecent, recentToOld },
+    selectedLabels,
+  } = currentFilterState;
   return (
     <>
       <div className="g-flex-row filter-modal-overlay">
         <div className="filter-modal-wrapper">
           <div className="fw-700 g-flex-row g-flex-space-between-align-center p-5 filter-modal-header">
             <p>FILTERS</p>
-            <p className="text-cursor-pointer">CLEAR ALL</p>
+            <p
+              className="fs-1-5 text-cursor-pointer"
+              onClick={() => {
+                filterStateUpdate({ type: "REMOVE_FILTERS" });
+              }}
+            >
+              CLEAR ALL
+            </p>
             <button
               className="close-filter-wrapper"
               onClick={() => {
@@ -34,7 +45,7 @@ const FilterModal = ({ checkDisplayModal }) => {
                       id="recent-to-old"
                       name="date"
                       className="mr-4 pos-relative"
-                      checked={currentFilterState.sortBy.recentToOld}
+                      checked={recentToOld}
                       onChange={() => {
                         filterStateUpdate({ type: "RECENT_TO_OLD" });
                       }}
@@ -52,7 +63,7 @@ const FilterModal = ({ checkDisplayModal }) => {
                       id="old-to-recent"
                       name="date"
                       className="mr-4 pos-relative"
-                      checked={currentFilterState.sortBy.oldToRecent}
+                      checked={oldToRecent}
                       onChange={() => {
                         filterStateUpdate({ type: "OLD_TO_RECENT" });
                       }}
@@ -77,17 +88,17 @@ const FilterModal = ({ checkDisplayModal }) => {
                           className="note-label-input"
                           type="checkbox"
                           id={everyLabel}
-                          checked={currentFilterState.selectedLabels.includes(everyLabel)}
-                          onChange={(e)=>{
-                              e.target.checked
-                                ? filterStateUpdate({
-                                    type: "ADD_LABEL",
-                                    payload: everyLabel,
-                                  })
-                                : filterStateUpdate({
-                                    type: "REMOVE_LABEL",
-                                    payload: everyLabel,
-                                  });
+                          checked={selectedLabels.includes(everyLabel)}
+                          onChange={(e) => {
+                            e.target.checked
+                              ? filterStateUpdate({
+                                  type: "ADD_LABEL",
+                                  payload: everyLabel,
+                                })
+                              : filterStateUpdate({
+                                  type: "REMOVE_LABEL",
+                                  payload: everyLabel,
+                                });
                           }}
                         />
 
