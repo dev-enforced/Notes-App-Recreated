@@ -33,7 +33,24 @@ const labelsSort = (providedNotesList, givenFilterState) => {
     return [...providedNotesList];
   }
 };
-
+const prioritySort = (providedNotesList, givenFilterState) => {
+  const { prioritySelected } = givenFilterState;
+  if (prioritySelected === "High") {
+    return [...providedNotesList].filter(
+      (everyNote) => everyNote.priorityDetails === "High"
+    );
+  } else if (prioritySelected === "Medium") {
+    return [...providedNotesList].filter(
+      (everyNote) => everyNote.priorityDetails === "Medium"
+    );
+  } else if (prioritySelected === "Low") {
+    return [...providedNotesList].filter(
+      (everyNote) => everyNote.priorityDetails === "Low"
+    );
+  } else {
+    return [...providedNotesList];
+  }
+};
 const cumulativeFilters = (...filtersApplied) => {
   return (providedNotesList, filterStateGiven) => {
     const generatedFilteredList = filtersApplied.reduce(
@@ -45,4 +62,4 @@ const cumulativeFilters = (...filtersApplied) => {
   };
 };
 
-export { cumulativeFilters, labelsSort, dateSort };
+export { cumulativeFilters, labelsSort, dateSort, prioritySort };

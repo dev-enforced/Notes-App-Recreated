@@ -4,6 +4,7 @@ const initialNoteFilterState = {
     recentToOld: false,
   },
   selectedLabels: [],
+  prioritySelected: "",
 };
 
 const noteFilterReducer = (givenFilterState, { type, payload }) => {
@@ -42,6 +43,12 @@ const noteFilterReducer = (givenFilterState, { type, payload }) => {
       };
     case "REMOVE_FILTERS":
       return { ...initialNoteFilterState };
+    case "HIGH_PRIORITY":
+      return { ...givenFilterState, prioritySelected: "High" };
+    case "MEDIUM_PRIORITY":
+      return { ...givenFilterState, prioritySelected: "Medium" };
+    case "LOW_PRIORITY":
+      return { ...givenFilterState, prioritySelected: "Low" };
     default:
       return { ...givenFilterState };
   }

@@ -7,6 +7,7 @@ const FilterModal = ({ checkDisplayModal }) => {
   const {
     sortBy: { oldToRecent, recentToOld },
     selectedLabels,
+    prioritySelected,
   } = currentFilterState;
   return (
     <>
@@ -74,7 +75,7 @@ const FilterModal = ({ checkDisplayModal }) => {
               </ul>
             </div>
             <div className="filter-container">
-              <h5>LABELS</h5>
+              <h5>SORT BY LABELS</h5>
               <ul className="gentle-flex-gap g-flex-wrap">
                 {noteLabels &&
                   noteLabels?.map((everyLabel) => {
@@ -105,6 +106,65 @@ const FilterModal = ({ checkDisplayModal }) => {
                       </label>
                     );
                   })}
+              </ul>
+            </div>
+            <div className="filter-container">
+              <h5>SORT BY PRIORITY</h5>
+              <ul className="gentle-flex-gap g-flex-wrap">
+                <li className="pl-6 my-2">
+                  <label
+                    className="fw-400 note-label-input"
+                    htmlFor="priority-high"
+                  >
+                    <input
+                      type="radio"
+                      id="priority-high"
+                      name="priority-choice"
+                      className="mr-4 pos-relative"
+                      checked={prioritySelected === "High"}
+                      onChange={() => {
+                        filterStateUpdate({ type: "HIGH_PRIORITY" });
+                      }}
+                    />
+                    <span className="fs-1-5">High</span>
+                  </label>
+                </li>
+                <li className="pl-6 my-2">
+                  <label
+                    className="fw-400 note-label-input"
+                    htmlFor="priority-medium"
+                  >
+                    <input
+                      type="radio"
+                      id="priority-medium"
+                      name="priority-choice"
+                      className="mr-4 pos-relative"
+                      checked={prioritySelected === "Medium"}
+                      onChange={() => {
+                        filterStateUpdate({ type: "MEDIUM_PRIORITY" });
+                      }}
+                    />
+                    <span className="fs-1-5">Medium</span>
+                  </label>
+                </li>
+                <li className="pl-6 my-2">
+                  <label
+                    className="fw-400 note-label-input"
+                    htmlFor="priority-low"
+                  >
+                    <input
+                      type="radio"
+                      id="priority-low"
+                      name="priority-choice"
+                      className="mr-4 pos-relative"
+                      checked={prioritySelected === "Low"}
+                      onChange={() => {
+                        filterStateUpdate({ type: "LOW_PRIORITY" });
+                      }}
+                    />
+                    <span className="fs-1-5">Low</span>
+                  </label>
+                </li>
               </ul>
             </div>
           </div>
