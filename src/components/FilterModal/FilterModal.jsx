@@ -101,7 +101,6 @@ const FilterModal = ({ checkDisplayModal }) => {
                                 });
                           }}
                         />
-
                         {everyLabel}
                       </label>
                     );
