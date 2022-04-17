@@ -7,7 +7,6 @@ import {
 } from "components";
 import "./NoteInput.css";
 import { useNotes } from "context";
-import { dateFormatter } from "constants";
 const NoteInput = () => {
   const {
     updateExistingNote,
@@ -31,7 +30,7 @@ const NoteInput = () => {
     } else {
       addNewNote({
         ...noteData,
-        creationDetails: [...dateFormatter.formatToParts(new Date())],
+        creationDetails: new Date(),
       });
     }
     dispatchNoteData({ type: "RESET_INPUT_DATA" });

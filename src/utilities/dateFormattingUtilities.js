@@ -1,5 +1,7 @@
+import { dateFormatter } from "constants";
 const dateExtractor = (creationDetailsGiven) => {
-  return creationDetailsGiven
+  return dateFormatter
+    .formatToParts(new Date(creationDetailsGiven))
     .filter(({ type }) => type === "day" || type === "month" || type === "year")
     .map(({ type, value }) => {
       switch (type) {
@@ -11,7 +13,8 @@ const dateExtractor = (creationDetailsGiven) => {
 };
 
 const timeExtractor = (creationDetailsGiven) => {
-  return creationDetailsGiven
+  return dateFormatter
+    .formatToParts(new Date(creationDetailsGiven))
     .filter(
       ({ type }) => type === "hour" || type === "minute" || type === "second"
     )

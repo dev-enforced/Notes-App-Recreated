@@ -17,11 +17,22 @@ const FilterProvider = ({ children }) => {
       sortBy: { oldToRecent, recentToOld },
     } = givenFilterState;
     if (oldToRecent) {
+      return [...providedNotesList].sort(
+        (firstNote, secondNote) =>
+          new Date(firstNote.creationDetails).getTime() -
+          new Date(secondNote.creationDetails).getTime()
+      );
     } else if (recentToOld) {
+      return [...providedNotesList].sort(
+        (firstNote, secondNote) =>
+          new Date(secondNote.creationDetails).getTime() -
+          new Date(firstNote.creationDetails).getTime()
+      );
     } else {
+      return [...providedNotesList];
     }
   };
-  const labelsSort = (providedNotesList, givenFilterState) => {};
+  // const labelsSort = (providedNotesList, givenFilterState) => {};
   const filterReducer = (givenFilterState, { type, payload }) => {
     switch (type) {
       case "OLD_TO_RECENT":
@@ -37,7 +48,7 @@ const FilterProvider = ({ children }) => {
           ...givenFilterState,
           sortBy: {
             oldToRecent: false,
-            recentToOld: !givenFilterState.sortBy.oldToRecent,
+            recentToOld: !givenFilterState.sortBy.recentToOld,
           },
         };
       default:
@@ -60,7 +71,7 @@ const FilterProvider = ({ children }) => {
     };
   };
 
-  const finalFilteredList = cumulativeFilters(labelsSort, dateSort)(
+  const finalFilteredList = cumulativeFilters(dateSort)(
     notesList,
     currentFilterState
   );

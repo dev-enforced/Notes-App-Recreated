@@ -1,8 +1,9 @@
 import React from "react";
-import { useNotes } from "context";
+import { useFilters, useNotes } from "context";
 import "./FilterModal.css";
 const FilterModal = ({ checkDisplayModal }) => {
   const { noteLabels } = useNotes();
+  const { currentFilterState, filterStateUpdate } = useFilters();
   return (
     <>
       <div className="g-flex-row filter-modal-overlay">
@@ -33,6 +34,10 @@ const FilterModal = ({ checkDisplayModal }) => {
                       id="recent-to-old"
                       name="date"
                       className="mr-4 pos-relative"
+                      checked={currentFilterState.sortBy.recentToOld}
+                      onChange={() => {
+                        filterStateUpdate({ type: "RECENT_TO_OLD" });
+                      }}
                     />
                     <span className="fs-1-5">Date: Recent To Old</span>
                   </label>
@@ -47,6 +52,10 @@ const FilterModal = ({ checkDisplayModal }) => {
                       id="old-to-recent"
                       name="date"
                       className="mr-4 pos-relative"
+                      checked={currentFilterState.sortBy.oldToRecent}
+                      onChange={() => {
+                        filterStateUpdate({ type: "OLD_TO_RECENT" });
+                      }}
                     />
                     <span className="fs-1-5">Date: Old To Recent</span>
                   </label>
@@ -60,6 +69,7 @@ const FilterModal = ({ checkDisplayModal }) => {
                   noteLabels?.map((everyLabel) => {
                     return (
                       <label
+                        key={everyLabel}
                         className="gentle-flex-gap g-flex-align-center fs-1-5 fw-400"
                         htmlFor={everyLabel}
                       >
