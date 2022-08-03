@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import { useNavigate /*useLocation*/ } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { getLoginResponse, getSignupResponse } from "services";
 const AuthenticationContext = createContext(null);
 const useAuthentication = () => useContext(AuthenticationContext);
@@ -7,7 +7,7 @@ const useAuthentication = () => useContext(AuthenticationContext);
 const AuthProvider = ({ children }) => {
   const localStorageDetails = JSON.parse(localStorage.getItem("AUTH-DETAILS"));
   const navigateTo = useNavigate();
-  // const location = useLocation();
+  const location = useLocation();
   const initialAuthState = {
     isLoggedIn: localStorageDetails ? true : false,
     authToken: localStorageDetails?.authToken,
@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
           isLoggedIn: true,
           authToken: encodedTokenFromData,
         }));
-        navigateTo("/noteshome");
+        navigateTo(location?.state?.from?.pathname ?? "/noteshome");
       }
     } catch (loginSubmissionError) {
       console.error("LOGIN SUBMISSION ERROR:", loginSubmissionError);
@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
           isLoggedIn: true,
           authToken: encodedTokenFromData,
         }));
-        navigateTo("/noteshome");
+        navigateTo(location?.state?.from?.pathname ?? "/noteshome");
       }
     } catch (signupSubmissionError) {
       console.error("LOGIN SUBMISSION ERROR:", signupSubmissionError);
