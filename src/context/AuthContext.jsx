@@ -30,7 +30,9 @@ const AuthProvider = ({ children }) => {
           isLoggedIn: true,
           authToken: encodedTokenFromData,
         }));
-        navigateTo(location?.state?.from?.pathname ?? "/noteshome");
+        navigateTo(location?.state?.from?.pathname ?? "/noteshome", {
+          replace: true,
+        });
       }
     } catch (loginSubmissionError) {
       console.error("LOGIN SUBMISSION ERROR:", loginSubmissionError);
@@ -53,7 +55,9 @@ const AuthProvider = ({ children }) => {
           isLoggedIn: true,
           authToken: encodedTokenFromData,
         }));
-        navigateTo(location?.state?.from?.pathname ?? "/noteshome");
+        navigateTo(location?.state?.from?.pathname ?? "/noteshome", {
+          replace: true,
+        });
       }
     } catch (signupSubmissionError) {
       console.error("LOGIN SUBMISSION ERROR:", signupSubmissionError);
