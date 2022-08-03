@@ -1,13 +1,11 @@
 import React from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useAuthentication } from "context";
 import { Dark } from "constants";
-import { logoutService } from "services";
 import "./HomePageNavigation.css";
 
 const HomePageNavigation = () => {
-  const { authState, setAuthState } = useAuthentication();
-  const navigate = useNavigate();
+  const { authState, logoutHandler } = useAuthentication();
   const { isLoggedIn } = authState;
   return (
     <nav className="home-page-nav flex-row flex-space-between-align-center">
@@ -25,7 +23,7 @@ const HomePageNavigation = () => {
             <button
               className={`hero-btn hero-btn-primary py-2 px-3`}
               onClick={() => {
-                logoutService(navigate, setAuthState);
+                logoutHandler();
               }}
             >
               LOGOUT

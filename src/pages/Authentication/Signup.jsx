@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuthentication } from "context";
 import { initialSignupData } from "constants";
-import { signupSubmissionHandler } from "services";
 import "./authentication.css";
 import { fetchAndSetFormInputValues } from "utilities";
 const Signup = () => {
-  const navigate = useNavigate();
-  const { setAuthState } = useAuthentication();
+  const { signupSubmissionHandler } = useAuthentication();
   const [signupData, setSignupData] = useState(initialSignupData);
 
   return (
@@ -19,8 +17,9 @@ const Signup = () => {
           </div>
           <form
             className="auth-form"
-            onSubmit={(e) => {
-              signupSubmissionHandler(e, signupData, setAuthState, navigate);
+            onSubmit={(formSubmitEvent) => {
+              formSubmitEvent.preventDefault();
+              signupSubmissionHandler(signupData);
             }}
           >
             <div className="form-input-container">
