@@ -1,3 +1,4 @@
+import { actionConstants } from "constants";
 const initialNoteFilterState = {
   sortBy: {
     oldToRecent: false,
@@ -6,6 +7,15 @@ const initialNoteFilterState = {
   selectedLabels: [],
   prioritySelected: "",
 };
+
+const {
+  FILTERS: {
+    SORT_BY: { OLD_TO_RECENT, RECENT_TO_OLD },
+    LABELS: { ADD_LABEL, REMOVE_LABEL },
+    PRIORITY_ALLOTMENTS: { HIGH_PRIORITY, MEDIUM_PRIORITY, LOW_PRIORITY },
+    REMOVE_FILTERS,
+  },
+} = actionConstants;
 
 const noteFilterReducer = (givenFilterState, { type, payload }) => {
   switch (type) {

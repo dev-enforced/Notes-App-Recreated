@@ -1,8 +1,12 @@
 import axios from "axios";
+import { apiUrlConstants } from "constants";
+const {
+  NOTES_TRASH_URL_LIST: { TRASH_RESTORE_API },
+} = apiUrlConstants;
 const restoreExistingNoteFromTrashService = async (givenNote, tokenValue) => {
   try {
     const response = await axios.post(
-      `/api/trash/restore/${givenNote._id}`,
+      `${TRASH_RESTORE_API}/${givenNote._id}`,
       { note: { ...givenNote } },
       {
         headers: {

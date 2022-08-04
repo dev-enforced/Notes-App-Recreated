@@ -1,8 +1,12 @@
 import axios from "axios";
+import { apiUrlConstants } from "constants";
+const {
+  NOTES_API_URL_LIST: { NOTES_API },
+} = apiUrlConstants;
 const addNewNoteService = async (givenNote, tokenValue) => {
   try {
     const response = await axios.post(
-      "/api/notes",
+      `${NOTES_API}`,
       { note: { ...givenNote } },
       {
         headers: {

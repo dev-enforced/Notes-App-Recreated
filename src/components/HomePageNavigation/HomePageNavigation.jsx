@@ -1,15 +1,19 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuthentication } from "context";
-import { Dark } from "constants";
+import { Dark, routeConstants } from "constants";
 import "./HomePageNavigation.css";
 
 const HomePageNavigation = () => {
+  const { HOME_ROUTE } = routeConstants;
   const { authState, logoutHandler } = useAuthentication();
   const { isLoggedIn } = authState;
   return (
     <nav className="home-page-nav flex-row flex-space-between-align-center">
-      <Link to="/" className="link-none home-redirect flex-row flex-center">
+      <Link
+        to={HOME_ROUTE}
+        className="link-none home-redirect flex-row flex-center"
+      >
         <img
           src="./main-icon.png"
           alt="UNOTES APP LOGO"

@@ -10,6 +10,7 @@ const apiUrlConstants = {
   },
   NOTES_ARCHIVES_URL_LIST: {
     ARCHIVES_API: "/api/archives",
+    ARCHIVES_RESTORE_API: "/api/archives/restore",
     ARCHIVES_TRASH_URL: "/api/archives/trash",
   },
   NOTES_TRASH_URL_LIST: {

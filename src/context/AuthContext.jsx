@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { getLoginResponse, getSignupResponse } from "services";
+import { routeConstants } from "constants";
 const AuthenticationContext = createContext(null);
 const useAuthentication = () => useContext(AuthenticationContext);
 
@@ -13,6 +14,7 @@ const AuthProvider = ({ children }) => {
     authToken: localStorageDetails?.authToken,
   };
   const [authState, setAuthState] = useState(initialAuthState);
+  const { HOME_ROUTE, NOTES_HOME } = routeConstants;
   const loginSubmissionHandler = async (loginDataGiven) => {
     try {
       const { data, status } = await getLoginResponse(loginDataGiven);
@@ -30,7 +32,7 @@ const AuthProvider = ({ children }) => {
           isLoggedIn: true,
           authToken: encodedTokenFromData,
         }));
-        navigateTo(location?.state?.from?.pathname ?? "/noteshome", {
+        navigateTo(location?.state?.from?.pathname ?? NOTES_HOME, {
           replace: true,
         });
       }
@@ -55,7 +57,7 @@ const AuthProvider = ({ children }) => {
           isLoggedIn: true,
           authToken: encodedTokenFromData,
         }));
-        navigateTo(location?.state?.from?.pathname ?? "/noteshome", {
+        navigateTo(location?.state?.from?.pathname ?? NOTES_HOME, {
           replace: true,
         });
       }
@@ -66,7 +68,7 @@ const AuthProvider = ({ children }) => {
   const logoutHandler = () => {
     setAuthState((prev) => ({ ...prev, isLoggedIn: false, authToken: "" }));
     localStorage.removeItem("AUTH-DETAILS");
-    navigateTo("/");
+    navigateTo(HOME_ROUTE);
   };
   return (
     <AuthenticationContext.Provider
