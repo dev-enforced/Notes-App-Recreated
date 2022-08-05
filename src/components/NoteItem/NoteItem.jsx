@@ -79,6 +79,7 @@ const NoteItem = ({ noteDetails }) => {
         <button
           className="g-flex-row g-flex-center p-3"
           onClick={() => {
+            window.scrollTo(0,0);
             dispatchNoteData({
               type: UPDATE_EXISTING_DATA,
               payload: noteDetails,
