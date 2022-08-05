@@ -1,3 +1,4 @@
+import { actionConstants } from "constants";
 const defaultNoteData = {
   title: "",
   editorContent: "",
@@ -5,8 +6,20 @@ const defaultNoteData = {
   priorityDetails: "Low",
   pinStatus: false,
   labels: [],
-  creationDetails:"",
+  creationDetails: "",
 };
+const {
+  INPUT_ACTIONS: {
+    UPDATE_TITLE,
+    UPDATE_DESCRIPTION,
+    UPDATE_COLOR,
+    UPDATE_PRIORITY,
+    UPDATE_EXISTING_DATA,
+    UPDATE_PIN_STATUS,
+    RESET_INPUT_DATA,
+    LABELS: { ADD_LABEL, REMOVE_LABEL },
+  },
+} = actionConstants;
 const noteInputReducer = (givenState, action) => {
   const { type, payload } = action;
   switch (type) {

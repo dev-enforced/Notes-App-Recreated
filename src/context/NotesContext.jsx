@@ -3,8 +3,9 @@ import React, {
   useContext,
   useState,
   useEffect,
-  useReducer
+  useReducer,
 } from "react";
+import { toast } from "react-hot-toast";
 import { defaultNoteData, noteInputReducer } from "reducers";
 import {
   addNewNoteService,
@@ -46,6 +47,7 @@ const NotesProvider = ({ children }) => {
         data: { notes: notesFromResponse },
       } = await addNewNoteService(NoteProvided, authState.authToken);
       setNotesList(notesFromResponse);
+      toast.success("Added a new note");
     } catch (error) {
       console.error(
         "ERROR WHILE SETTING NOTES FROM ADD NOTES API CALL:",
@@ -59,6 +61,7 @@ const NotesProvider = ({ children }) => {
         data: { notes: notesFromResponse },
       } = await updateExistingNoteService(NoteProvided, authState.authToken);
       setNotesList(notesFromResponse);
+      toast.success("Note details updated");
     } catch (error) {
       console.error(
         "ERROR WHILE UPDATING EXISTING NOTES FROM UPDATE API CALL:",
@@ -76,6 +79,7 @@ const NotesProvider = ({ children }) => {
         authState.authToken
       );
       setNotesList(notesFromResponse);
+      toast.success("Note pin status updated");
     } catch (error) {
       console.error(
         "ERROR WHILE UPDATING EXISTING NOTES FROM UPDATE API CALL:",

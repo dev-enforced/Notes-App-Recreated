@@ -1,8 +1,12 @@
 import axios from "axios";
+import { apiUrlConstants } from "constants";
+const {
+  NOTES_ARCHIVES_URL_LIST: { ARCHIVES_TRASH_URL },
+} = apiUrlConstants;
 const transferServiceOfArchivedNoteToTrash = async (givenNote, tokenValue) => {
   try {
     const response = await axios.post(
-      `/api/archives/trash/${givenNote._id}`,
+      `${ARCHIVES_TRASH_URL}/${givenNote._id}`,
       { note: { ...givenNote } },
       {
         headers: {

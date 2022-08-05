@@ -1,8 +1,12 @@
 import axios from "axios";
+import { apiUrlConstants } from "constants";
+const {
+  NOTES_ARCHIVES_URL_LIST: { ARCHIVES_RESTORE_API },
+} = apiUrlConstants;
 const restoreArchivedNoteService = async (givenNote, tokenValue) => {
   try {
     const response = await axios.post(
-      `/api/archives/restore/${givenNote._id}`,
+      `${ARCHIVES_RESTORE_API}/${givenNote._id}`,
       { note: { ...givenNote } },
       {
         headers: {

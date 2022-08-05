@@ -1,7 +1,11 @@
 import axios from "axios";
+import { apiUrlConstants } from "constants";
+const {
+  NOTES_API_URL_LIST: { NOTES_API },
+} = apiUrlConstants;
 const receiveAllNotes = async (tokenValue) => {
   try {
-    const response = await axios.get("/api/notes", {
+    const response = await axios.get(`${NOTES_API}`, {
       headers: {
         authorization: tokenValue,
       },

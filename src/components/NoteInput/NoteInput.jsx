@@ -5,8 +5,10 @@ import {
   PriorityDropdown,
   LabelSection,
 } from "components";
-import "./NoteInput.css";
 import { useNotes } from "context";
+import "./NoteInput.css";
+import { actionConstants } from "constants";
+
 const NoteInput = () => {
   const {
     updateExistingNote,
@@ -15,6 +17,9 @@ const NoteInput = () => {
     addNewNote,
     notesList,
   } = useNotes();
+  const {
+    INPUT_ACTIONS: { RESET_INPUT_DATA, UPDATE_TITLE },
+  } = actionConstants;
   const [activeDropdown, setActiveDropdown] = useState({
     colorDropdown: false,
     priorityDropdown: false,
@@ -33,7 +38,7 @@ const NoteInput = () => {
         creationDetails: new Date(),
       });
     }
-    dispatchNoteData({ type: "RESET_INPUT_DATA" });
+    dispatchNoteData({ type: RESET_INPUT_DATA });
     setActiveDropdown({
       colorDropdown: false,
       priorityDropdown: false,
@@ -52,9 +57,9 @@ const NoteInput = () => {
         name="title"
         value={noteData.title}
         className="note-input p-3"
-        placeholder="ENTER TITLE"
+        placeholder="* ENTER TITLE"
         onChange={(e) => {
-          dispatchNoteData({ type: "UPDATE_TITLE", payload: e.target.value });
+          dispatchNoteData({ type: UPDATE_TITLE, payload: e.target.value });
         }}
         required
       />
@@ -106,7 +111,7 @@ const NoteInput = () => {
             className="btn btn-error"
             onClick={(e) => {
               e.preventDefault();
-              dispatchNoteData({ type: "RESET_INPUT_DATA" });
+              dispatchNoteData({ type: RESET_INPUT_DATA });
             }}
           >
             CANCEL

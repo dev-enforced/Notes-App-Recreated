@@ -1,17 +1,19 @@
 import React from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useAuthentication } from "context";
-import { Dark } from "constants";
-import { logoutService } from "services";
+import { Dark, routeConstants } from "constants";
 import "./HomePageNavigation.css";
 
 const HomePageNavigation = () => {
-  const { authState, setAuthState } = useAuthentication();
-  const navigate = useNavigate();
+  const { HOME_ROUTE } = routeConstants;
+  const { authState, logoutHandler } = useAuthentication();
   const { isLoggedIn } = authState;
   return (
     <nav className="home-page-nav flex-row flex-space-between-align-center">
-      <Link to="/" className="link-none home-redirect flex-row flex-center">
+      <Link
+        to={HOME_ROUTE}
+        className="link-none home-redirect flex-row flex-center"
+      >
         <img
           src="./main-icon.png"
           alt="UNOTES APP LOGO"
@@ -25,7 +27,7 @@ const HomePageNavigation = () => {
             <button
               className={`hero-btn hero-btn-primary py-2 px-3`}
               onClick={() => {
-                logoutService(navigate, setAuthState);
+                logoutHandler();
               }}
             >
               LOGOUT
@@ -36,7 +38,7 @@ const HomePageNavigation = () => {
             </NavLink>
           )}
         </li>
-        <li>
+        <li className="component-hide">
           <Dark className="nav-icon text-cursor-pointer" title="Toggle Theme" />
         </li>
       </ul>

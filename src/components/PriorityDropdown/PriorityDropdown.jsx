@@ -1,6 +1,8 @@
-import { useNotes } from "context";
 import React from "react";
+import { useNotes } from "context";
+import { actionConstants } from "constants";
 import "./PriorityDropdown.css";
+
 const PriorityDropdown = ({ activeDropdown, setActiveDropdown }) => {
   const { dispatchNoteData } = useNotes();
   const togglePriorityDropdownStyle = () => {
@@ -10,6 +12,9 @@ const PriorityDropdown = ({ activeDropdown, setActiveDropdown }) => {
       colorDropdown: false,
     }));
   };
+  const {
+    INPUT_ACTIONS: { UPDATE_PRIORITY },
+  } = actionConstants;
   return (
     <div
       className="priority-list-dropdown-container"
@@ -33,28 +38,28 @@ const PriorityDropdown = ({ activeDropdown, setActiveDropdown }) => {
       >
         <li
           onClick={() => {
-            dispatchNoteData({ type: "UPDATE_PRIORITY", payload: "High" });
+            dispatchNoteData({ type: UPDATE_PRIORITY, payload: "High" });
             togglePriorityDropdownStyle();
           }}
-          className="py-2 px-4"
+          className="py-2 px-4 text-cursor-pointer"
         >
           High
         </li>
         <li
           onClick={() => {
-            dispatchNoteData({ type: "UPDATE_PRIORITY", payload: "Medium" });
+            dispatchNoteData({ type: UPDATE_PRIORITY, payload: "Medium" });
             togglePriorityDropdownStyle();
           }}
-          className="py-2 px-4"
+          className="py-2 px-4 text-cursor-pointer"
         >
           Medium
         </li>
         <li
           onClick={() => {
-            dispatchNoteData({ type: "UPDATE_PRIORITY", payload: "Low" });
+            dispatchNoteData({ type: UPDATE_PRIORITY, payload: "Low" });
             togglePriorityDropdownStyle();
           }}
-          className="py-2 px-4"
+          className="py-2 px-4 text-cursor-pointer"
         >
           Low
         </li>

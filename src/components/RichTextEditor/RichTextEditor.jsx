@@ -1,6 +1,7 @@
-import { useNotes } from "context";
 import React from "react";
 import ReactQuill from "react-quill";
+import { useNotes } from "context";
+import { actionConstants } from "constants";
 import "react-quill/dist/quill.snow.css";
 import "./RichTextEditor.css";
 
@@ -27,6 +28,9 @@ const formatsProvided = [
 
 const RichTextEditor = () => {
   const { noteData, dispatchNoteData } = useNotes();
+  const {
+    INPUT_ACTIONS: { UPDATE_DESCRIPTION },
+  } = actionConstants;
   return (
     <ReactQuill
       className="text-editor"
@@ -34,9 +38,9 @@ const RichTextEditor = () => {
       modules={RichTextEditorSetup}
       formats={formatsProvided}
       theme="snow"
-      placeholder="Give your note description..."
+      placeholder="* Add your note description."
       onChange={(e) => {
-        dispatchNoteData({ type: "UPDATE_DESCRIPTION", payload: e });
+        dispatchNoteData({ type: UPDATE_DESCRIPTION, payload: e });
       }}
       required
     />

@@ -1,9 +1,12 @@
 import React from "react";
 import { useNotes } from "context";
-import { colorList } from "constants";
+import { colorList, actionConstants } from "constants";
 import "./ColorPalette.css";
 const ColorPalette = ({ activeDropdown, setActiveDropdown }) => {
   const { dispatchNoteData } = useNotes();
+  const {
+    INPUT_ACTIONS: { UPDATE_COLOR },
+  } = actionConstants;
   const toggleColorDropdown = () => {
     setActiveDropdown((currentValue) => ({
       priorityDropdown: false,
@@ -38,10 +41,10 @@ const ColorPalette = ({ activeDropdown, setActiveDropdown }) => {
           return (
             <span
               onClick={() => {
-                dispatchNoteData({ type: "UPDATE_COLOR", payload: everyColor });
+                dispatchNoteData({ type: UPDATE_COLOR, payload: everyColor });
                 toggleColorDropdown();
               }}
-              className={`color-element color-list-${index + 1}`}
+              className={`color-element color-list-${index + 1} text-cursor-pointer`}
               key={index}
               value={everyColor}
             ></span>

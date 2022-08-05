@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuthentication } from "context";
 import { initialLoginData, guestCredentials } from "constants";
-import { loginSubmissionHandler } from "services";
-import "./authentication.css";
 import { fetchAndSetFormInputValues } from "utilities";
+import "./authentication.css";
 const Login = () => {
-  const { setAuthState } = useAuthentication();
-  const navigate = useNavigate();
-
+  const { loginSubmissionHandler } = useAuthentication();
   const [loginData, setLoginData] = useState(initialLoginData);
 
   return (
@@ -20,8 +17,9 @@ const Login = () => {
           </div>
           <form
             className="auth-form"
-            onSubmit={(e) => {
-              loginSubmissionHandler(e, loginData, setAuthState, navigate);
+            onSubmit={(formSubmitEvent) => {
+              formSubmitEvent.preventDefault();
+              loginSubmissionHandler(loginData);
             }}
           >
             <div className="form-input-container">
@@ -62,23 +60,21 @@ const Login = () => {
             >
               LOG IN
             </button>
+            <div className="flex-column gentle-flex-gap flex-align-center">
+              <p>
+                <button
+                  className="px-2 py-3 hero-btn hero-btn-primary"
+                  onClick={(formSubmitEvent) => {
+                    formSubmitEvent.preventDefault();
+                    loginSubmissionHandler(guestCredentials);
+                  }}
+                >
+                  GUEST LOGIN
+                </button>
+              </p>
+            </div>
           </form>
           <div className="form-actions flex-column gentle-flex-gap flex-align-center">
-            <p>
-              <button
-                className="px-2 py-3 hero-btn hero-btn-primary"
-                onClick={(e) => {
-                  loginSubmissionHandler(
-                    e,
-                    guestCredentials,
-                    setAuthState,
-                    navigate
-                  );
-                }}
-              >
-                GUEST LOGIN
-              </button>
-            </p>
             <p>
               <NavLink to="/signup" className="link-none">
                 New To UNOTE ?{" "}
