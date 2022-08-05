@@ -56,9 +56,9 @@ const NoteItem = ({ noteDetails }) => {
           </span>
         </div>
       )}
-      <div className="note-card-description g-flex-row g-flex-wrap">
-        {labels.length > 0 &&
-          labels.map((everyLabel, index) => {
+      {labels.length > 0 && (
+        <div className="note-card-description g-flex-row g-flex-wrap">
+          {labels.map((everyLabel, index) => {
             return (
               <span
                 key={index}
@@ -68,7 +68,8 @@ const NoteItem = ({ noteDetails }) => {
               </span>
             );
           })}
-      </div>
+        </div>
+      )}
       <div className="note-card-description g-flex-row g-flex-space-between">
         <span>{creationDetails && dateExtractor(creationDetails)}</span>
         <span className="fw-600">
@@ -79,7 +80,7 @@ const NoteItem = ({ noteDetails }) => {
         <button
           className="g-flex-row g-flex-center p-3"
           onClick={() => {
-            window.scrollTo(0,0);
+            window.scrollTo(0, 0);
             dispatchNoteData({
               type: UPDATE_EXISTING_DATA,
               payload: noteDetails,

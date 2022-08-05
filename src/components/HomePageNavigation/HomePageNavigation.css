@@ -50,3 +50,7 @@
   font-size: 1.3rem;
   color: #5c5ce0;
 }
+
+.component-hide{
+  visibility: hidden;
+}

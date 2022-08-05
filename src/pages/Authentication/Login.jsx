@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuthentication } from "context";
 import { initialLoginData, guestCredentials } from "constants";
-import "./authentication.css";
 import { fetchAndSetFormInputValues } from "utilities";
+import "./authentication.css";
 const Login = () => {
   const { loginSubmissionHandler } = useAuthentication();
   const [loginData, setLoginData] = useState(initialLoginData);
@@ -60,19 +60,21 @@ const Login = () => {
             >
               LOG IN
             </button>
+            <div className="flex-column gentle-flex-gap flex-align-center">
+              <p>
+                <button
+                  className="px-2 py-3 hero-btn hero-btn-primary"
+                  onClick={(formSubmitEvent) => {
+                    formSubmitEvent.preventDefault();
+                    loginSubmissionHandler(guestCredentials);
+                  }}
+                >
+                  GUEST LOGIN
+                </button>
+              </p>
+            </div>
           </form>
           <div className="form-actions flex-column gentle-flex-gap flex-align-center">
-            <p>
-              <button
-                className="px-2 py-3 hero-btn hero-btn-primary"
-                onClick={(formSubmitEvent) => {
-                  formSubmitEvent.preventDefault();
-                  loginSubmissionHandler(guestCredentials);
-                }}
-              >
-                GUEST LOGIN
-              </button>
-            </p>
             <p>
               <NavLink to="/signup" className="link-none">
                 New To UNOTE ?{" "}

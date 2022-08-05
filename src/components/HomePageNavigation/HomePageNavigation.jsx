@@ -38,7 +38,7 @@ const HomePageNavigation = () => {
             </NavLink>
           )}
         </li>
-        <li>
+        <li className="component-hide">
           <Dark className="nav-icon text-cursor-pointer" title="Toggle Theme" />
         </li>
       </ul>
