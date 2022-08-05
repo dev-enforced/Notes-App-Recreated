@@ -38,7 +38,7 @@ const RichTextEditor = () => {
       modules={RichTextEditorSetup}
       formats={formatsProvided}
       theme="snow"
-      placeholder="* Give your note description..."
+      placeholder="* Add your note description."
       onChange={(e) => {
         dispatchNoteData({ type: UPDATE_DESCRIPTION, payload: e });
       }}
