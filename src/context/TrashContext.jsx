@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { toast } from "react-hot-toast";
 import { useAuthentication, useNotes, useArchives } from "context";
 import {
   receiveAllTrash,
@@ -41,6 +42,7 @@ const TrashProvider = ({ children }) => {
       );
       setTrashNotesList(trashFromResponse);
       setNotesList(notesFromResponse);
+      toast.success("Note moved to trash");
     } catch (error) {
       console.error(
         "ERROR OCCURED WHILE SETTING UP ITEMS WHEN MOVING FROM NOTES TO TRASH",
@@ -59,6 +61,7 @@ const TrashProvider = ({ children }) => {
       );
       setArchivedNotesList(archivesFromResponse);
       setTrashNotesList(trashFromResponse);
+      toast.success("Note moved to trash");
     } catch (error) {
       console.error(
         "ERROR OCCURED WHILE SETTING UP ITEMS WHEN MOVING FROM ARCHIVES TO TRASH"
@@ -76,6 +79,7 @@ const TrashProvider = ({ children }) => {
       );
       setNotesList(notesFromResponse);
       setTrashNotesList(trashFromResponse);
+      toast.success("Note restored from trash");
     } catch (error) {
       console.error(
         "ERROR OCCURED WHILE SETTING UP TRASH AND NOTES SECTION AT THE TIME OF RESTORING A NOTE",
@@ -90,6 +94,7 @@ const TrashProvider = ({ children }) => {
         data: { trash: trashFromResponse },
       } = await deleteNoteForeverService(NoteProvided, authState.authToken);
       setTrashNotesList(trashFromResponse);
+      toast.success("Note removed forever")
     } catch (error) {
       console.error(
         "ERROR OCCURED WHILE SETTING UP TRASH SECTION WHEN REMOVING A NOTE FOREVER",

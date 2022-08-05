@@ -1,10 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { toast } from "react-hot-toast";
 import { useAuthentication, useNotes } from "context";
 import {
   receiveAllArchives,
   transferServiceOfExistingNoteToArchive,
   restoreArchivedNoteService,
 } from "services";
+
 const ArchivesContext = createContext(null);
 const useArchives = () => useContext(ArchivesContext);
 const ArchivesProvider = ({ children }) => {
@@ -38,6 +40,7 @@ const ArchivesProvider = ({ children }) => {
       );
       setArchivedNotesList(archivesFromResponse);
       setNotesList(notesFromResponse);
+      toast.success("Moved to archives");
     } catch (error) {
       console.error(
         "ERROR OCCURED WHILE SETTING THE NOTES AND ARCHIVES WHEN MOVING ONE TO ARCHIVE",
@@ -56,6 +59,7 @@ const ArchivesProvider = ({ children }) => {
       );
       setNotesList(notesFromResponse);
       setArchivedNotesList(archivesFromResponse);
+      toast.success("Moved to Notes");
     } catch (error) {
       console.error(
         "ERROR OCCURED WHILE SETTING THE NOTES AND ARCHIVES WHEN RESTORING A NOTE FROM ARCHIVE",

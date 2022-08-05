@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import { getLoginResponse, getSignupResponse } from "services";
 import { routeConstants } from "constants";
 const AuthenticationContext = createContext(null);
@@ -35,6 +36,7 @@ const AuthProvider = ({ children }) => {
         navigateTo(location?.state?.from?.pathname ?? NOTES_HOME, {
           replace: true,
         });
+        toast.success("Signed in successfully");
       }
     } catch (loginSubmissionError) {
       console.error("LOGIN SUBMISSION ERROR:", loginSubmissionError);
@@ -44,6 +46,7 @@ const AuthProvider = ({ children }) => {
     try {
       const { data, status } = await getSignupResponse(signupDataGiven);
       const { encodedToken: encodedTokenFromData } = data;
+
       if (status === 201) {
         localStorage.setItem(
           "AUTH-DETAILS",
@@ -61,6 +64,7 @@ const AuthProvider = ({ children }) => {
           replace: true,
         });
       }
+      toast.success("Signed up successfully");
     } catch (signupSubmissionError) {
       console.error("LOGIN SUBMISSION ERROR:", signupSubmissionError);
     }
@@ -69,6 +73,7 @@ const AuthProvider = ({ children }) => {
     setAuthState((prev) => ({ ...prev, isLoggedIn: false, authToken: "" }));
     localStorage.removeItem("AUTH-DETAILS");
     navigateTo(HOME_ROUTE);
+    toast.success("Signed out successfully");
   };
   return (
     <AuthenticationContext.Provider
