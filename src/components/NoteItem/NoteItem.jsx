@@ -1,10 +1,21 @@
 import React from "react";
 import parse from "html-react-parser";
 import { useArchives, useNotes, useTrash } from "context";
-import "./NoteItem.css";
-import { Unpinned, Pinned, ArchiveMoved, Trash, Edit } from "constants";
+import {
+  Unpinned,
+  Pinned,
+  ArchiveMoved,
+  Trash,
+  Edit,
+  actionConstants,
+} from "constants";
 import { dateExtractor, timeExtractor } from "utilities";
+import "./NoteItem.css";
+
 const NoteItem = ({ noteDetails }) => {
+  const {
+    INPUT_ACTIONS: { UPDATE_EXISTING_DATA },
+  } = actionConstants;
   const {
     title,
     color,
@@ -69,7 +80,7 @@ const NoteItem = ({ noteDetails }) => {
           className="g-flex-row g-flex-center p-3"
           onClick={() => {
             dispatchNoteData({
-              type: "UPDATE_EXISTING_DATA",
+              type: UPDATE_EXISTING_DATA,
               payload: noteDetails,
             });
           }}

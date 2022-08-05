@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { useNotes } from "context";
+import { actionConstants } from "constants";
 import "./LabelSection.css";
 
 const LabelSection = ({ activeDropdown, setActiveDropdown }) => {
   const { noteLabels, setNoteLabels, noteData, dispatchNoteData } = useNotes();
+  const {
+    INPUT_ACTIONS: {
+      LABELS: { ADD_LABEL, REMOVE_LABEL },
+    },
+  } = actionConstants;
   const toggleLabelDropdown = () => {
     setActiveDropdown((currentValue) => ({
       priorityDropdown: false,
@@ -21,7 +27,7 @@ const LabelSection = ({ activeDropdown, setActiveDropdown }) => {
             ? [...prevList]
             : [...prevList, labelInput]
         );
-        dispatchNoteData({ type: "ADD_LABEL", payload: labelInput });
+        dispatchNoteData({ type: ADD_LABEL, payload: labelInput });
         setLabelInput("");
       }
     }
@@ -32,7 +38,7 @@ const LabelSection = ({ activeDropdown, setActiveDropdown }) => {
   const removeLabelFromCancelClick = (givenLabel) => {
     if (noteData.labels.includes(givenLabel)) {
       dispatchNoteData({
-        type: "REMOVE_LABEL",
+        type: REMOVE_LABEL,
         payload: givenLabel,
       });
       setNoteLabels((prevList) =>
@@ -91,11 +97,11 @@ const LabelSection = ({ activeDropdown, setActiveDropdown }) => {
                     onChange={(e) => {
                       e.target.checked
                         ? dispatchNoteData({
-                            type: "ADD_LABEL",
+                            type: ADD_LABEL,
                             payload: everyLabel,
                           })
                         : dispatchNoteData({
-                            type: "REMOVE_LABEL",
+                            type: REMOVE_LABEL,
                             payload: everyLabel,
                           });
                     }}

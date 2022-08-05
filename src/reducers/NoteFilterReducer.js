@@ -19,7 +19,7 @@ const {
 
 const noteFilterReducer = (givenFilterState, { type, payload }) => {
   switch (type) {
-    case "OLD_TO_RECENT":
+    case OLD_TO_RECENT:
       return {
         ...givenFilterState,
         sortBy: {
@@ -27,7 +27,7 @@ const noteFilterReducer = (givenFilterState, { type, payload }) => {
           recentToOld: false,
         },
       };
-    case "RECENT_TO_OLD":
+    case RECENT_TO_OLD:
       return {
         ...givenFilterState,
         sortBy: {
@@ -36,7 +36,7 @@ const noteFilterReducer = (givenFilterState, { type, payload }) => {
         },
       };
 
-    case "ADD_LABEL":
+    case ADD_LABEL:
       return {
         ...givenFilterState,
         selectedLabels: givenFilterState.selectedLabels.includes(payload)
@@ -44,20 +44,20 @@ const noteFilterReducer = (givenFilterState, { type, payload }) => {
           : [...givenFilterState.selectedLabels, payload],
       };
 
-    case "REMOVE_LABEL":
+    case REMOVE_LABEL:
       return {
         ...givenFilterState,
         selectedLabels: givenFilterState.selectedLabels.filter(
           (everyLabel) => everyLabel !== payload
         ),
       };
-    case "REMOVE_FILTERS":
+    case REMOVE_FILTERS:
       return { ...initialNoteFilterState };
-    case "HIGH_PRIORITY":
+    case HIGH_PRIORITY:
       return { ...givenFilterState, prioritySelected: "High" };
-    case "MEDIUM_PRIORITY":
+    case MEDIUM_PRIORITY:
       return { ...givenFilterState, prioritySelected: "Medium" };
-    case "LOW_PRIORITY":
+    case LOW_PRIORITY:
       return { ...givenFilterState, prioritySelected: "Low" };
     default:
       return { ...givenFilterState };

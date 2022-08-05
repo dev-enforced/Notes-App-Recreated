@@ -6,7 +6,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-us", {
   hour: "numeric",
   minute: "numeric",
   second: "numeric",
-  hour24:true,
+  hourCycle: "h24",
   timeZone: "IST",
 });
 export { dateFormatter };

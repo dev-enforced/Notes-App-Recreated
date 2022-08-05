@@ -1,5 +1,6 @@
 import React from "react";
 import { useFilters, useNotes } from "context";
+import { actionConstants } from "constants";
 import "./FilterModal.css";
 const FilterModal = ({ checkDisplayModal }) => {
   const { noteLabels } = useNotes();
@@ -9,6 +10,14 @@ const FilterModal = ({ checkDisplayModal }) => {
     selectedLabels,
     prioritySelected,
   } = currentFilterState;
+  const {
+    FILTERS: {
+      SORT_BY: { OLD_TO_RECENT, RECENT_TO_OLD },
+      LABELS: { ADD_LABEL, REMOVE_LABEL },
+      PRIORITY_ALLOTMENTS: { HIGH_PRIORITY, MEDIUM_PRIORITY, LOW_PRIORITY },
+      REMOVE_FILTERS,
+    },
+  } = actionConstants;
   return (
     <>
       <div className="g-flex-row filter-modal-overlay">
@@ -18,7 +27,7 @@ const FilterModal = ({ checkDisplayModal }) => {
             <p
               className="fs-1-5 text-cursor-pointer"
               onClick={() => {
-                filterStateUpdate({ type: "REMOVE_FILTERS" });
+                filterStateUpdate({ type: REMOVE_FILTERS });
               }}
             >
               CLEAR ALL
@@ -48,7 +57,7 @@ const FilterModal = ({ checkDisplayModal }) => {
                       className="mr-4 pos-relative"
                       checked={recentToOld}
                       onChange={() => {
-                        filterStateUpdate({ type: "RECENT_TO_OLD" });
+                        filterStateUpdate({ type: RECENT_TO_OLD });
                       }}
                     />
                     <span className="fs-1-5">Date: Recent To Old</span>
@@ -66,7 +75,7 @@ const FilterModal = ({ checkDisplayModal }) => {
                       className="mr-4 pos-relative"
                       checked={oldToRecent}
                       onChange={() => {
-                        filterStateUpdate({ type: "OLD_TO_RECENT" });
+                        filterStateUpdate({ type: OLD_TO_RECENT });
                       }}
                     />
                     <span className="fs-1-5">Date: Old To Recent</span>
@@ -75,7 +84,7 @@ const FilterModal = ({ checkDisplayModal }) => {
               </ul>
             </div>
             <div className="filter-container">
-              <h5>SORT BY LABELS</h5>
+              <h5>FILTER BY LABELS</h5>
               <ul className="gentle-flex-gap g-flex-wrap">
                 {noteLabels &&
                   noteLabels?.map((everyLabel) => {
@@ -93,11 +102,11 @@ const FilterModal = ({ checkDisplayModal }) => {
                           onChange={(e) => {
                             e.target.checked
                               ? filterStateUpdate({
-                                  type: "ADD_LABEL",
+                                  type: ADD_LABEL,
                                   payload: everyLabel,
                                 })
                               : filterStateUpdate({
-                                  type: "REMOVE_LABEL",
+                                  type: REMOVE_LABEL,
                                   payload: everyLabel,
                                 });
                           }}
@@ -109,7 +118,7 @@ const FilterModal = ({ checkDisplayModal }) => {
               </ul>
             </div>
             <div className="filter-container">
-              <h5>SORT BY PRIORITY</h5>
+              <h5>FILTER BY PRIORITY</h5>
               <ul className="gentle-flex-gap g-flex-wrap">
                 <li className="pl-6 my-2">
                   <label
@@ -123,7 +132,7 @@ const FilterModal = ({ checkDisplayModal }) => {
                       className="mr-4 pos-relative"
                       checked={prioritySelected === "High"}
                       onChange={() => {
-                        filterStateUpdate({ type: "HIGH_PRIORITY" });
+                        filterStateUpdate({ type: HIGH_PRIORITY });
                       }}
                     />
                     <span className="fs-1-5">High</span>
@@ -141,7 +150,7 @@ const FilterModal = ({ checkDisplayModal }) => {
                       className="mr-4 pos-relative"
                       checked={prioritySelected === "Medium"}
                       onChange={() => {
-                        filterStateUpdate({ type: "MEDIUM_PRIORITY" });
+                        filterStateUpdate({ type: MEDIUM_PRIORITY });
                       }}
                     />
                     <span className="fs-1-5">Medium</span>
@@ -159,7 +168,7 @@ const FilterModal = ({ checkDisplayModal }) => {
                       className="mr-4 pos-relative"
                       checked={prioritySelected === "Low"}
                       onChange={() => {
-                        filterStateUpdate({ type: "LOW_PRIORITY" });
+                        filterStateUpdate({ type: LOW_PRIORITY });
                       }}
                     />
                     <span className="fs-1-5">Low</span>
