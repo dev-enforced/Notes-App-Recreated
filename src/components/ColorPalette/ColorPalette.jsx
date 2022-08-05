@@ -44,7 +44,7 @@ const ColorPalette = ({ activeDropdown, setActiveDropdown }) => {
                 dispatchNoteData({ type: UPDATE_COLOR, payload: everyColor });
                 toggleColorDropdown();
               }}
-              className={`color-element color-list-${index + 1}`}
+              className={`color-element color-list-${index + 1} text-cursor-pointer`}
               key={index}
               value={everyColor}
             ></span>

@@ -106,7 +106,7 @@ const LabelSection = ({ activeDropdown, setActiveDropdown }) => {
                           });
                     }}
                   />
-                  <label className="fw-700" htmlFor={everyLabel}>
+                  <label className="fw-700 text-cursor-pointer" htmlFor={everyLabel}>
                     {everyLabel}
                   </label>
                 </span>

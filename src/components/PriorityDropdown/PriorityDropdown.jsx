@@ -41,7 +41,7 @@ const PriorityDropdown = ({ activeDropdown, setActiveDropdown }) => {
             dispatchNoteData({ type: UPDATE_PRIORITY, payload: "High" });
             togglePriorityDropdownStyle();
           }}
-          className="py-2 px-4"
+          className="py-2 px-4 text-cursor-pointer"
         >
           High
         </li>
@@ -50,7 +50,7 @@ const PriorityDropdown = ({ activeDropdown, setActiveDropdown }) => {
             dispatchNoteData({ type: UPDATE_PRIORITY, payload: "Medium" });
             togglePriorityDropdownStyle();
           }}
-          className="py-2 px-4"
+          className="py-2 px-4 text-cursor-pointer"
         >
           Medium
         </li>
@@ -59,7 +59,7 @@ const PriorityDropdown = ({ activeDropdown, setActiveDropdown }) => {
             dispatchNoteData({ type: UPDATE_PRIORITY, payload: "Low" });
             togglePriorityDropdownStyle();
           }}
-          className="py-2 px-4"
+          className="py-2 px-4 text-cursor-pointer"
         >
           Low
         </li>
