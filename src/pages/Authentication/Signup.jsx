@@ -1,13 +1,22 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuthentication } from "context";
 import { initialSignupData } from "constants";
 import "./authentication.css";
 import { fetchAndSetFormInputValues } from "utilities";
 const Signup = () => {
-  const { signupSubmissionHandler } = useAuthentication();
+  const {
+    signupSubmissionHandler,
+    authState: { isLoggedIn, authToken },
+  } = useAuthentication();
+  const navigateTo = useNavigate();
   const [signupData, setSignupData] = useState(initialSignupData);
-
+  useEffect(() => {
+    if (isLoggedIn && authToken) {
+      navigateTo(-1);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <section className="main-container">
       <div className="auth-wrapper flex-row flex-center">
