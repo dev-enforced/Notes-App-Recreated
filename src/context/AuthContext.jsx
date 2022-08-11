@@ -39,6 +39,7 @@ const AuthProvider = ({ children }) => {
         toast.success("Signed in successfully");
       }
     } catch (loginSubmissionError) {
+      toast.error("Login failed.Please try again.");
       console.error("LOGIN SUBMISSION ERROR:", loginSubmissionError);
     }
   };
@@ -66,6 +67,7 @@ const AuthProvider = ({ children }) => {
       }
       toast.success("Signed up successfully");
     } catch (signupSubmissionError) {
+      toast.error("Sign up failed.Please try again.");
       console.error("LOGIN SUBMISSION ERROR:", signupSubmissionError);
     }
   };

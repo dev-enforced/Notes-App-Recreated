@@ -49,6 +49,7 @@ const NotesProvider = ({ children }) => {
       setNotesList(notesFromResponse);
       toast.success("Added a new note");
     } catch (error) {
+      toast.error("An error occured!! Please refresh & try again");
       console.error(
         "ERROR WHILE SETTING NOTES FROM ADD NOTES API CALL:",
         error
@@ -63,6 +64,7 @@ const NotesProvider = ({ children }) => {
       setNotesList(notesFromResponse);
       toast.success("Note details updated");
     } catch (error) {
+      toast.error("An error occured!! Please refresh & try again");
       console.error(
         "ERROR WHILE UPDATING EXISTING NOTES FROM UPDATE API CALL:",
         error
@@ -81,6 +83,7 @@ const NotesProvider = ({ children }) => {
       setNotesList(notesFromResponse);
       toast.success("Note pin status updated");
     } catch (error) {
+      toast.error("An error occured!! Please refresh & try again");
       console.error(
         "ERROR WHILE UPDATING EXISTING NOTES FROM UPDATE API CALL:",
         error

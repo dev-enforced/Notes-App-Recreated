@@ -42,6 +42,7 @@ const ArchivesProvider = ({ children }) => {
       setNotesList(notesFromResponse);
       toast.success("Moved to archives");
     } catch (error) {
+      toast.error("An error occured!! Please refresh & try again");
       console.error(
         "ERROR OCCURED WHILE SETTING THE NOTES AND ARCHIVES WHEN MOVING ONE TO ARCHIVE",
         error
@@ -61,6 +62,7 @@ const ArchivesProvider = ({ children }) => {
       setArchivedNotesList(archivesFromResponse);
       toast.success("Moved to Notes");
     } catch (error) {
+      toast.error("An error occured!! Please refresh & try again");
       console.error(
         "ERROR OCCURED WHILE SETTING THE NOTES AND ARCHIVES WHEN RESTORING A NOTE FROM ARCHIVE",
         error

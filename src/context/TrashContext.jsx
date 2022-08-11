@@ -44,6 +44,7 @@ const TrashProvider = ({ children }) => {
       setNotesList(notesFromResponse);
       toast.success("Note moved to trash");
     } catch (error) {
+      toast.error("An error occured!! Please refresh & try again");
       console.error(
         "ERROR OCCURED WHILE SETTING UP ITEMS WHEN MOVING FROM NOTES TO TRASH",
         error
@@ -63,6 +64,7 @@ const TrashProvider = ({ children }) => {
       setTrashNotesList(trashFromResponse);
       toast.success("Note moved to trash");
     } catch (error) {
+      toast.error("An error occured!! Please refresh & try again");
       console.error(
         "ERROR OCCURED WHILE SETTING UP ITEMS WHEN MOVING FROM ARCHIVES TO TRASH"
       );
@@ -81,6 +83,7 @@ const TrashProvider = ({ children }) => {
       setTrashNotesList(trashFromResponse);
       toast.success("Note restored from trash");
     } catch (error) {
+      toast.error("An error occured!! Please refresh & try again");
       console.error(
         "ERROR OCCURED WHILE SETTING UP TRASH AND NOTES SECTION AT THE TIME OF RESTORING A NOTE",
         error
@@ -94,8 +97,9 @@ const TrashProvider = ({ children }) => {
         data: { trash: trashFromResponse },
       } = await deleteNoteForeverService(NoteProvided, authState.authToken);
       setTrashNotesList(trashFromResponse);
-      toast.success("Note removed forever")
+      toast.success("Note removed forever");
     } catch (error) {
+      toast.error("An error occured!! Please refresh & try again");
       console.error(
         "ERROR OCCURED WHILE SETTING UP TRASH SECTION WHEN REMOVING A NOTE FOREVER",
         error
