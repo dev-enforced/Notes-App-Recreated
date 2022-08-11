@@ -17,6 +17,10 @@
   gap: 0.5rem;
 }
 
+.note-card-heading {
+  width: 100%;
+}
+
 .note-card-actions-container {
   border-top: 1px solid #dbdbdb;
   align-items: stretch;

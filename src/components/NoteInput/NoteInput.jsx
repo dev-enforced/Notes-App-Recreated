@@ -57,7 +57,8 @@ const NoteInput = () => {
         name="title"
         value={noteData.title}
         className="note-input p-3"
-        placeholder="* ENTER TITLE"
+        placeholder="* Enter Title"
+        maxLength={45}
         onChange={(e) => {
           dispatchNoteData({ type: UPDATE_TITLE, payload: e.target.value });
         }}

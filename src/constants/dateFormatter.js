@@ -7,6 +7,6 @@ const dateFormatter = new Intl.DateTimeFormat("en-us", {
   minute: "numeric",
   second: "numeric",
   hourCycle: "h24",
-  timeZone: "IST",
+  timeZone: "Asia/Kolkata",
 });
 export { dateFormatter };
