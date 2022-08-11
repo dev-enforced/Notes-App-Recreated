@@ -6,6 +6,7 @@ const initialNoteFilterState = {
   },
   selectedLabels: [],
   prioritySelected: "",
+  filtersApplied: false,
 };
 
 const {
@@ -26,6 +27,7 @@ const noteFilterReducer = (givenFilterState, { type, payload }) => {
           oldToRecent: !givenFilterState.sortBy.oldToRecent,
           recentToOld: false,
         },
+        filtersApplied: true,
       };
     case RECENT_TO_OLD:
       return {
@@ -34,11 +36,13 @@ const noteFilterReducer = (givenFilterState, { type, payload }) => {
           oldToRecent: false,
           recentToOld: !givenFilterState.sortBy.recentToOld,
         },
+        filtersApplied: true,
       };
 
     case ADD_LABEL:
       return {
         ...givenFilterState,
+        filtersApplied: true,
         selectedLabels: givenFilterState.selectedLabels.includes(payload)
           ? [...givenFilterState.selectedLabels]
           : [...givenFilterState.selectedLabels, payload],
@@ -47,6 +51,8 @@ const noteFilterReducer = (givenFilterState, { type, payload }) => {
     case REMOVE_LABEL:
       return {
         ...givenFilterState,
+        filtersApplied:
+          givenFilterState.selectedLabels.length > 0 ? true : false,
         selectedLabels: givenFilterState.selectedLabels.filter(
           (everyLabel) => everyLabel !== payload
         ),
@@ -54,11 +60,23 @@ const noteFilterReducer = (givenFilterState, { type, payload }) => {
     case REMOVE_FILTERS:
       return { ...initialNoteFilterState };
     case HIGH_PRIORITY:
-      return { ...givenFilterState, prioritySelected: "High" };
+      return {
+        ...givenFilterState,
+        filtersApplied: true,
+        prioritySelected: "High",
+      };
     case MEDIUM_PRIORITY:
-      return { ...givenFilterState, prioritySelected: "Medium" };
+      return {
+        ...givenFilterState,
+        filtersApplied: true,
+        prioritySelected: "Medium",
+      };
     case LOW_PRIORITY:
-      return { ...givenFilterState, prioritySelected: "Low" };
+      return {
+        ...givenFilterState,
+        filtersApplied: true,
+        prioritySelected: "Low",
+      };
     default:
       return { ...givenFilterState };
   }
