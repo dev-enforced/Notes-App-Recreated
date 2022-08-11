@@ -33,7 +33,10 @@ const HomePageNavigation = () => {
               LOGOUT
             </button>
           ) : (
-            <NavLink className={`home-link link-none`} to="/login">
+            <NavLink
+              className={`hero-btn hero-btn-primary py-2 px-3 link-decoration-none`}
+              to="/login"
+            >
               LOGIN
             </NavLink>
           )}

@@ -25,7 +25,7 @@ const FilterModal = ({ checkDisplayModal }) => {
           <div className="fw-700 g-flex-row g-flex-space-between-align-center p-5 filter-modal-header">
             <p>FILTERS</p>
             <p
-              className="fs-1-5 text-cursor-pointer"
+              className="hero-btn hero-btn-primary py-2 px-3 text-cursor-pointer"
               onClick={() => {
                 filterStateUpdate({ type: REMOVE_FILTERS });
               }}

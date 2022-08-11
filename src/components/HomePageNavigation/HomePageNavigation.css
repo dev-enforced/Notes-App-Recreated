@@ -51,6 +51,10 @@
   color: #5c5ce0;
 }
 
-.component-hide{
+.component-hide {
   visibility: hidden;
+}
+
+.link-decoration-none{
+  text-decoration: none;
 }
