@@ -3,8 +3,10 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useAuthentication } from "context";
 import { initialLoginData, guestCredentials } from "constants";
 import { fetchAndSetFormInputValues } from "utilities";
+import { useDocumentTitle } from "hooks";
 import "./authentication.css";
 const Login = () => {
+  useDocumentTitle("LOGIN | UNOTE");
   const {
     loginSubmissionHandler,
     authState: { isLoggedIn, authToken },

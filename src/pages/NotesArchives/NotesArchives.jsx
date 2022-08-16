@@ -2,10 +2,12 @@ import React from "react";
 import { SideNavigation } from "components";
 import { EmptyNotesArchives, FilledNotesArchives } from "pages";
 import { useArchives } from "context";
+import { useDocumentTitle } from "hooks";
 import "./NotesArchives.css";
 
 const NotesArchives = () => {
   const { archivedNotesList } = useArchives();
+  useDocumentTitle("ARCHIVES | UNOTE");
   return (
     <section className="note-content-wrapper mt-2">
       <SideNavigation />

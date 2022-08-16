@@ -4,11 +4,13 @@ import {
   NoteInput,
   NoteDisplay,
   PinnedNotesSection,
-  FilterModal
+  FilterModal,
 } from "components";
+import { useDocumentTitle } from "hooks";
 import "./NotesHome.css";
 const NotesHome = () => {
   const [filterModalDisplay, setFilterModalDisplay] = useState(false);
+  useDocumentTitle("HOME | UNOTE");
   return (
     <section className="note-content-wrapper mt-2">
       <SideNavigation />
@@ -21,7 +23,9 @@ const NotesHome = () => {
         >
           FILTERS
         </button>
-        {filterModalDisplay && <FilterModal checkDisplayModal={setFilterModalDisplay}/>}
+        {filterModalDisplay && (
+          <FilterModal checkDisplayModal={setFilterModalDisplay} />
+        )}
         <NoteInput />
         <PinnedNotesSection />
         <NoteDisplay />

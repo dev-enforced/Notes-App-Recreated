@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuthentication } from "context";
 import { initialSignupData } from "constants";
-import "./authentication.css";
 import { fetchAndSetFormInputValues } from "utilities";
+import { useDocumentTitle } from "hooks";
+import "./authentication.css";
 const Signup = () => {
+  useDocumentTitle("SIGNUP | UNOTE");
   const {
     signupSubmissionHandler,
     authState: { isLoggedIn, authToken },
